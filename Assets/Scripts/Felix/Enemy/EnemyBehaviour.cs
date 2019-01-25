@@ -46,7 +46,7 @@ public class EnemyBehaviour : LiveEntity
         StartCoroutine(disableAtkEffect(.5f));
 
         //cause damage to target
-        pathfind.target.GetComponent<PlayerControl>().TakeDamage(1);
+        pathfind.target.GetComponent<PlayerControl>().TakeDamage(atkDmg);
     }
 
     bool canAtk()
@@ -76,7 +76,10 @@ public class EnemyBehaviour : LiveEntity
 
     public override void Die()
     {
-        throw new System.NotImplementedException();
+        //trigger animation?
+
+        //destroy object (set inactive back to pool)
+        gameObject.SetActive(false);
     }
 
     public override void Move(Vector2 direction)
@@ -85,7 +88,7 @@ public class EnemyBehaviour : LiveEntity
         {
             base.Move(direction);
             Face(direction);
-            atkEffect.transform.eulerAngles.Set(0, 0, cardinalLookAngle);
+            atkEffect.transform.localRotation = new Quaternion(0, 0, cardinalLookAngle, 0); //need to be change
         }
     }
 
