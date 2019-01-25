@@ -79,8 +79,8 @@ public class EnemyBehaviour : LiveEntity
     {       
         if (canMove)
         {
-            transform.Translate(direction * moveSpeed * GameManager.deltaTime);
-            transform.LookAt(direction);
+            base.Move(direction);
+            Face(direction);
         }
     }
 
