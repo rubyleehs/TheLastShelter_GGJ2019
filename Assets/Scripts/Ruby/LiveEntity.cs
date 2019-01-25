@@ -11,12 +11,13 @@ public abstract class LiveEntity : MonoBehaviour
     public float maxHP;
     public float currentHP;
     public float moveSpeed;
-    public float atkRange;
-    public float atkCooldown;
+    public float stationarySpeedBoostRatio; //to overcome inertia so player don't feel "sticky"
 
     //Runtime Values
     [HideInInspector]
-    public float lookAngle; //in degrees; 0 is to the right, ANTICLOCKWISE direction is positive, from -180 to 180
+    protected float lookAngle; //in degrees; 0 is to the right, ANTICLOCKWISE direction is positive, from -180 to 180
+    protected float cardinalLookAngle; //rounded to cardinals
+    protected Vector2 velocity;
 
     [Header("Refrences")]
     public new Transform transform;
@@ -30,7 +31,27 @@ public abstract class LiveEntity : MonoBehaviour
         if (spriteRenderer == null) spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    public abstract void Move(Vector2 direction);
+    public virtual void Move(Vector2 direction)
+    {
+        //to simulate inertia/knockback without using actual physics (somehow unity physics for player control never really felt right for me)
+        if (velocity.sqrMagnitude <= moveSpeed * moveSpeed)
+        {
+            if (velocity.sqrMagnitude > 1f) velocity += direction.normalized * moveSpeed * rb.mass * GameManager.deltaTime;
+            else velocity += direction.normalized * moveSpeed * rb.mass * GameManager.deltaTime * stationarySpeedBoostRatio;
+        }
+
+        velocity -= velocity.normalized * rb.mass * rb.drag * GameManager.deltaTime;
+        //don't detect super small movements so it doesnt feel slippery
+        if (velocity.sqrMagnitude >= 0.2f)
+        {
+            rb.velocity = velocity;
+        }
+        else
+        {
+            velocity = Vector2.zero;
+            rb.velocity = Vector2.zero;
+        }
+    }
 
     public virtual void Face(Vector2 direction)
     {
@@ -40,14 +61,30 @@ public abstract class LiveEntity : MonoBehaviour
         if(absLookAngle > 45 && absLookAngle < 135)
         {
             spriteRenderer.flipX = false;
-            if (direction.y > 0) spriteRenderer.sprite = sprites[1]; //facing up
-            else spriteRenderer.sprite = sprites[2]; //facing down
+            if (direction.y > 0)
+            {
+                spriteRenderer.sprite = sprites[1]; //facing up
+                cardinalLookAngle = 90;
+            }
+            else
+            {
+                spriteRenderer.sprite = sprites[2]; //facing down
+                cardinalLookAngle = -90;
+            }
         }
         else
         {
             spriteRenderer.sprite = sprites[0];
-            if (direction.x > 0) spriteRenderer.flipX = false; //facing right
-            else spriteRenderer.flipX = true; //facing left
+            if (direction.x > 0)
+            {
+                spriteRenderer.flipX = false; //facing right
+                cardinalLookAngle = 0;
+            }
+            else
+            {
+                spriteRenderer.flipX = true; //facing left
+                cardinalLookAngle = 180;
+            }
         }
     }
 

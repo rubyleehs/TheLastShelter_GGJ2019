@@ -6,6 +6,8 @@ public class EnemyBehaviour : LiveEntity
 {
     PathFinding pathfind;
     float atkTimer;
+    float atkRange;
+    float atkCooldown;
 
     // Start is called before the first frame update
     void Start()

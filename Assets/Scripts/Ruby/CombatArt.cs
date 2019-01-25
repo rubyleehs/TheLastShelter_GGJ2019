@@ -14,4 +14,7 @@ public abstract class CombatArt : ScriptableObject
 
     public float momentumCausedAngle;
     public float momentumCausedMagnitude;
+
+    public float durationOfAttack;
+
 }

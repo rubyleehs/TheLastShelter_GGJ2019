@@ -2,17 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HitboxInfo : MonoBehaviour
+public struct HitboxInfo 
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    //these are all in local space
+    public Vector2 size;
+    public Vector2 position;
 }
