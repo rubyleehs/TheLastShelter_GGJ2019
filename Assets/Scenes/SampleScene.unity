@@ -123,6 +123,8 @@ GameObject:
   - component: {fileID: 414206993}
   - component: {fileID: 414206992}
   - component: {fileID: 414206994}
+  - component: {fileID: 414206996}
+  - component: {fileID: 414206995}
   m_Layer: 0
   m_Name: Mother
   m_TagString: FRIENDLIES
@@ -208,6 +210,60 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.090741634
+--- !u!114 &414206995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414206991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 583e414fdce80f64ba28f44ca650a925, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites: []
+  maxHP: 50
+  currentHP: 50
+  moveSpeed: 5
+  stationarySpeedBoostRatio: 1.5
+  transform: {fileID: 0}
+  rb: {fileID: 0}
+  spriteRenderer: {fileID: 0}
+  inputScheme:
+    upKey: 0
+    downKey: 0
+    leftKey: 0
+    rightKey: 0
+    attackKey: 0
+  canHitLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  combatArts: []
+  attackChainBreakDuration: 0
+  comboChainBreakDuration: 0
+  combatArtHitbox: {fileID: 0}
+--- !u!50 &414206996
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414206991}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1347,6 +1403,8 @@ GameObject:
   - component: {fileID: 1650988532}
   - component: {fileID: 1650988531}
   - component: {fileID: 1650988533}
+  - component: {fileID: 1650988535}
+  - component: {fileID: 1650988534}
   m_Layer: 0
   m_Name: Father
   m_TagString: FRIENDLIES
@@ -1432,6 +1490,60 @@ CircleCollider2D:
   m_Offset: {x: -0.0015431046, y: 0}
   serializedVersion: 2
   m_Radius: 0.087655485
+--- !u!114 &1650988534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650988530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 583e414fdce80f64ba28f44ca650a925, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites: []
+  maxHP: 50
+  currentHP: 50
+  moveSpeed: 5
+  stationarySpeedBoostRatio: 1.5
+  transform: {fileID: 0}
+  rb: {fileID: 0}
+  spriteRenderer: {fileID: 0}
+  inputScheme:
+    upKey: 0
+    downKey: 0
+    leftKey: 0
+    rightKey: 0
+    attackKey: 0
+  canHitLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  combatArts: []
+  attackChainBreakDuration: 0
+  comboChainBreakDuration: 0
+  combatArtHitbox: {fileID: 0}
+--- !u!50 &1650988535
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650988530}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1832310920
 GameObject:
   m_ObjectHideFlags: 0
@@ -1577,7 +1689,7 @@ PrefabInstance:
     - target: {fileID: 7548833542429019857, guid: 4d64c1f351314734cb8b4c087605cc88,
         type: 3}
       propertyPath: moveSpeed
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7548833542429019857, guid: 4d64c1f351314734cb8b4c087605cc88,
         type: 3}

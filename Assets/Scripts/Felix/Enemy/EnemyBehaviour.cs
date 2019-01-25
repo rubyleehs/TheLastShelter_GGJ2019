@@ -46,11 +46,11 @@ public class EnemyBehaviour : LiveEntity
         StartCoroutine(disableAtkEffect(.5f));
 
         //cause damage to target
-
+        pathfind.target.GetComponent<PlayerControl>().TakeDamage(1);
     }
 
     bool canAtk()
-    {      
+    {        
         //check cooldown
         if (atkTimer > 0) //still in cooldown            
             atkTimer -= GameManager.deltaTime;
@@ -63,8 +63,12 @@ public class EnemyBehaviour : LiveEntity
                 float distance = Vector2.Distance(pathfind.target.transform.position, transform.position);
                 if (distance < atkRange)
                 {
+                    //if enemy has target in range, dont move, just attack
+                    canMove = false;
                     return true;
                 }
+                else
+                    canMove = true;
             }            
         }
         return false;     
@@ -81,13 +85,13 @@ public class EnemyBehaviour : LiveEntity
         {
             base.Move(direction);
             Face(direction);
+            atkEffect.transform.eulerAngles.Set(0, 0, cardinalLookAngle);
         }
     }
 
     IEnumerator disableAtkEffect(float delay)
     {
         yield return new WaitForSecondsRealtime(delay);
-        atkEffect.SetActive(false);
-        canMove = true;
+        atkEffect.SetActive(false);        
     }
 }
