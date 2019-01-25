@@ -16,7 +16,7 @@ public struct InputScheme
 public class PlayerControl : LiveEntity
 {
     [Header("Player Control Specifics")]
-    public InputScheme inputScheme; //because I never worked with changing unity input system for local multi. going to safe,longer way. change if you want.
+    public InputScheme inputScheme; 
     protected Vector2 inputAxis;
 
     [Header("Player Combat and Attack Arts")]
@@ -71,9 +71,20 @@ public class PlayerControl : LiveEntity
     {
         if (isAttacking) return;
 
+
+
+    }
+
+    IEnumerator InitiateAttack(CombatArt art)
+    {
         isAttacking = true;
+        comboCount++;
 
+        DealDamage(art);
+        yield return new WaitForSeconds(art.durationOfAttack);
 
+        isAttacking = false;
+        durationSinceLastAttack = 0;
     }
 
     public virtual void DealDamage(CombatArt art)
@@ -84,7 +95,7 @@ public class PlayerControl : LiveEntity
         for (int i = 0; i < entitiesToDamage.Count; i++)
         {
             entitiesToDamage[i].TakeDamage(art.damage);
-            //entitiesToDamage[i].Push(art.momentumCausedAngle + Vector2.SignedAngle(Vector2.right, entitiesToDamage[i].transform.position - transform.position), art.momentumCausedMagnitude * weapon.momentumCausedMultiplier);
+            entitiesToDamage[i].Push(art.momentumCausedAngle + Vector2.SignedAngle(Vector2.right, entitiesToDamage[i].transform.position - transform.position), art.momentumCausedMagnitude);
         }
 
     }

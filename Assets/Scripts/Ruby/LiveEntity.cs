@@ -101,4 +101,9 @@ public abstract class LiveEntity : MonoBehaviour
     }
 
     public abstract void Die();
+
+    public void Push(float pushAngle, float pushMomentum)//knockback basically
+    {
+        velocity += new Vector2(Mathf.Cos(pushAngle * Mathf.Deg2Rad), Mathf.Sin(pushAngle * Mathf.Deg2Rad)) * (pushMomentum / rb.mass);
+    }
 }
