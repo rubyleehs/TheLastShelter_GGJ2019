@@ -9,7 +9,7 @@ public abstract class LiveEntity : MonoBehaviour
     //Stats
     public float maxHP;
     public float currentHP;
-    public float speed;
+    public float moveSpeed;
 
     //Runtime Values
     public float lookAngle;
