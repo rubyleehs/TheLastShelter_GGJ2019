@@ -122,6 +122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 254521737}
   - component: {fileID: 254521736}
+  - component: {fileID: 254521738}
   m_Layer: 0
   m_Name: Mother
   m_TagString: FRIENDLIES
@@ -191,6 +192,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &254521738
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254521735}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.00006137576, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.090374745
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -286,6 +303,7 @@ GameObject:
   - component: {fileID: 849609053}
   - component: {fileID: 849609052}
   - component: {fileID: 849609051}
+  - component: {fileID: 849609056}
   m_Layer: 0
   m_Name: Enemy1
   m_TagString: Untagged
@@ -305,12 +323,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37273910709d8f149ac02e3f64fd6d69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprites: []
   maxHP: 100
   currentHP: 100
   moveSpeed: 5
+  atkRange: 1
+  atkCooldown: 2
   lookAngle: 0
   transform: {fileID: 0}
   rb: {fileID: 0}
+  spriteRenderer: {fileID: 0}
 --- !u!50 &849609052
 Rigidbody2D:
   serializedVersion: 4
@@ -344,6 +366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f04cdba7859acda43beefdbd0273a459, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
 --- !u!212 &849609054
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -406,6 +429,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &849609056
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849609050}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0011704445, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.0888505
 --- !u!1 &946683843
 GameObject:
   m_ObjectHideFlags: 0
@@ -1130,6 +1169,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1080176065}
   - component: {fileID: 1080176064}
+  - component: {fileID: 1080176066}
   m_Layer: 0
   m_Name: Father
   m_TagString: FRIENDLIES
@@ -1199,6 +1239,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &1080176066
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080176063}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0003219332, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.08922495
 --- !u!1 &1171048331
 GameObject:
   m_ObjectHideFlags: 0
@@ -1279,7 +1335,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2083549131}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 946683844}

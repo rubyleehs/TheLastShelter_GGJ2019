@@ -11,6 +11,8 @@ public abstract class LiveEntity : MonoBehaviour
     public float maxHP;
     public float currentHP;
     public float moveSpeed;
+    public float atkRange;
+    public float atkCooldown;
 
     //Runtime Values
     public float lookAngle; //in degrees; 0 is to the right, ANTICLOCKWISE direction is positive, from -180 to 180
@@ -42,7 +44,7 @@ public abstract class LiveEntity : MonoBehaviour
         else
         {
             if (direction.x > 0) spriteRenderer.sprite = sprites[0]; //facing right
-            else spriteRenderer.sprite = sprites[2] //facing left
+            else spriteRenderer.sprite = sprites[2]; //facing left
         }
     }
 
