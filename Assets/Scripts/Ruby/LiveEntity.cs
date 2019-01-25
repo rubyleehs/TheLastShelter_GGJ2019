@@ -11,6 +11,8 @@ public abstract class LiveEntity : MonoBehaviour
     public float maxHP;
     public float currentHP;
     public float moveSpeed;
+    public float atkRange;
+    public float atkCooldown;
 
     //Runtime Values
     [HideInInspector]
