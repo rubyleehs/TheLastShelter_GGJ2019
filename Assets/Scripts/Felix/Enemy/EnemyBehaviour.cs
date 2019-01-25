@@ -14,6 +14,7 @@ public class EnemyBehaviour : LiveEntity
     float atkTimer;
     bool canMove = true; //to prevent enemy to move while attacking
 
+
     // Start is called before the first frame update
     void Start()
     {
