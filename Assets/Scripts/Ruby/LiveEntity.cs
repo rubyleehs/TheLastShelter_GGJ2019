@@ -5,17 +5,18 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public abstract class LiveEntity : MonoBehaviour
 {
-    public Sprite[] sprites;//1st 4 sprites is facing right, rotating anticlockwise
+    public Sprite[] sprites;//0 = face right, 1 = up, 2 = down
 
-    //Stats
+    [Header("Stats")]
     public float maxHP;
     public float currentHP;
     public float moveSpeed;
 
     //Runtime Values
+    [HideInInspector]
     public float lookAngle; //in degrees; 0 is to the right, ANTICLOCKWISE direction is positive, from -180 to 180
 
-    //Refrences
+    [Header("Refrences")]
     public new Transform transform;
     public Rigidbody2D rb;
     public SpriteRenderer spriteRenderer;
@@ -36,13 +37,15 @@ public abstract class LiveEntity : MonoBehaviour
 
         if(absLookAngle > 45 && absLookAngle < 135)
         {
+            spriteRenderer.flipX = false;
             if (direction.y > 0) spriteRenderer.sprite = sprites[1]; //facing up
-            else spriteRenderer.sprite = sprites[3]; //facing down
+            else spriteRenderer.sprite = sprites[2]; //facing down
         }
         else
         {
-            if (direction.x > 0) spriteRenderer.sprite = sprites[0]; //facing right
-            else spriteRenderer.sprite = sprites[2]; //facing left
+            spriteRenderer.sprite = sprites[0];
+            if (direction.x > 0) spriteRenderer.flipX = false; //facing right
+            else spriteRenderer.flipX = true; //facing left
         }
     }
 

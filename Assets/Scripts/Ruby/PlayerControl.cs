@@ -15,6 +15,7 @@ public struct InputScheme
 
 public class PlayerControl : LiveEntity
 {
+    [Header("Player Control Specifics")]
     public InputScheme inputScheme; //because I never worked with changing unity input system for local multi. going to safe,longer way. change if you want.
     protected Vector2 inputAxis;
 
@@ -39,7 +40,7 @@ public class PlayerControl : LiveEntity
 
         velocity -= velocity.normalized * rb.mass * rb.drag * GameManager.deltaTime;
         //don't detect super small movements so it doesnt feel slippery
-        if (velocity.sqrMagnitude >= 0.5f)
+        if (velocity.sqrMagnitude >= 0.2f)
         {
             rb.velocity = velocity;
         }
@@ -49,7 +50,7 @@ public class PlayerControl : LiveEntity
             rb.velocity = Vector2.zero;
         }
     }
-
+    
     protected virtual void HandlePlayerInput()
     {
         //Movement related Inputs
