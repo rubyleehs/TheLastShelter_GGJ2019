@@ -7,7 +7,9 @@ public class GameManager : MonoBehaviour {
     public static float deltaTime;
     protected float timeScale = 1;
 
+
     public static List<Transform> friendlies = new List<Transform>();
+
 
     private void Start()
     {

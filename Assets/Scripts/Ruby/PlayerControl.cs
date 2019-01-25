@@ -19,9 +19,11 @@ public class PlayerControl : LiveEntity
         {
             rb.velocity = velocity;
         }
-
-
-
+        else
+        {
+            velocity = Vector2.zero;
+            rb.velocity = Vector2.zero;
+        }
     }
     public override void Attack()
     {
