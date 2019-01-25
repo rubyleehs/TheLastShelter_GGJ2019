@@ -4,14 +4,22 @@ using UnityEngine;
 
 public class EnemyBehaviour : LiveEntity
 {
+    //reference
     PathFinding pathfind;
+    public GameObject atkEffect;
+    Animator atkAnim;
+
+    public float atkRange;
+    public float atkCooldown;
     float atkTimer;
+    bool canMove = true; //to prevent enemy to move while attacking
 
     // Start is called before the first frame update
     void Start()
     {
         pathfind = GetComponent<PathFinding>();
         atkTimer = atkCooldown;
+        atkAnim = atkEffect.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -26,10 +34,15 @@ public class EnemyBehaviour : LiveEntity
 
     public override void Attack()
     {
+        //stand still while executing attack
+        canMove = false;
+
         //reset cooldown
         atkTimer = atkCooldown;
 
         //trigger attack animation
+        atkEffect.SetActive(true);
+        StartCoroutine(disableAtkEffect(.5f));
 
         //cause damage to target
 
@@ -63,6 +76,17 @@ public class EnemyBehaviour : LiveEntity
 
     public override void Move(Vector2 direction)
     {       
-        transform.Translate(direction * moveSpeed * GameManager.deltaTime);
+        if (canMove)
+        {
+            transform.Translate(direction * moveSpeed * GameManager.deltaTime);
+            transform.LookAt(direction);
+        }
+    }
+
+    IEnumerator disableAtkEffect(float delay)
+    {
+        yield return new WaitForSecondsRealtime(delay);
+        atkEffect.SetActive(false);
+        canMove = true;
     }
 }

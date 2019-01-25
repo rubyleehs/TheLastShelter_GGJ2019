@@ -10,9 +10,7 @@ public abstract class LiveEntity : MonoBehaviour
     //Stats
     public float maxHP;
     public float currentHP;
-    public float moveSpeed;
-    public float atkRange;
-    public float atkCooldown;
+    public float moveSpeed;    
 
     //Runtime Values
     public float lookAngle; //in degrees; 0 is to the right, ANTICLOCKWISE direction is positive, from -180 to 180
