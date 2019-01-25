@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5df74d8fc5c4a3d43a598746b6795edf, type: 3}
   m_Name: RightSlash
   m_EditorClassIdentifier: 
+  hitboxInfo:
+    size: {x: 2, y: 0.5}
+    position: {x: 0.8, y: 0}
   damage: 10
   momentumInccuredAngle: 0
-  momentumInccuredMagnitude: 10
+  momentumInccuredMagnitude: 50
   momentumCausedAngle: 0
   momentumCausedMagnitude: 10
-  durationOfAttack: 1
+  durationOfAttack: 0.5

@@ -48,7 +48,7 @@ public class PlayerControl : LiveEntity
     {
         //Movement related Inputs
         inputAxis = Vector2.zero;
-        if (allowInput)
+        if (allowInput && !isAttacking)
         {
             //key inputs to axial input
             if (Input.GetKey(inputScheme.upKey)) inputAxis += Vector2.up;
