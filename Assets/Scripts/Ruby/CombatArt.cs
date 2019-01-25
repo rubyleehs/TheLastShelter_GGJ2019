@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Combat Art")]
-public abstract class CombatArt : ScriptableObject
+public class CombatArt : ScriptableObject
 {
-    public HitboxInfo[] hitboxInfo;
+    public HitboxInfo hitboxInfo;
 
     public float damage;
 

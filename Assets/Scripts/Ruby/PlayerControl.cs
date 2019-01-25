@@ -27,7 +27,7 @@ public class PlayerControl : LiveEntity
 
     public float attackChainBreakDuration;
     public float comboChainBreakDuration;
-    protected float durationSinceLastAttack;
+    protected float durationSinceLastAttack = 999;
 
     [Header("Debugging")]
     public Transform combatArtHitbox;
@@ -38,6 +38,8 @@ public class PlayerControl : LiveEntity
 
     private void Update()
     {
+        durationSinceLastAttack += GameManager.deltaTime;
+
         HandlePlayerInput();
     }
 
@@ -45,10 +47,10 @@ public class PlayerControl : LiveEntity
     protected virtual void HandlePlayerInput()
     {
         //Movement related Inputs
+        inputAxis = Vector2.zero;
         if (allowInput)
         {
             //key inputs to axial input
-            inputAxis = Vector2.zero;
             if (Input.GetKey(inputScheme.upKey)) inputAxis += Vector2.up;
             if (Input.GetKey(inputScheme.downKey)) inputAxis += Vector2.down;
             if (Input.GetKey(inputScheme.leftKey)) inputAxis += Vector2.left;
@@ -70,9 +72,16 @@ public class PlayerControl : LiveEntity
     public override void Attack()
     {
         if (isAttacking) return;
+        Debug.Log("Attack!");
 
+        if (durationSinceLastAttack > attackChainBreakDuration) attackChainPosition = 0;
+        else
+        {
+            attackChainPosition++;
+            attackChainPosition = attackChainPosition % combatArts.Length;
+        }
 
-
+        StartCoroutine(InitiateAttack(combatArts[attackChainPosition]));
     }
 
     IEnumerator InitiateAttack(CombatArt art)
@@ -81,6 +90,7 @@ public class PlayerControl : LiveEntity
         comboCount++;
 
         DealDamage(art);
+        Push(art.momentumInccuredAngle + lookAngle, art.momentumInccuredMagnitude);
         yield return new WaitForSeconds(art.durationOfAttack);
 
         isAttacking = false;
@@ -100,13 +110,6 @@ public class PlayerControl : LiveEntity
 
     }
 
-    private void GetLiveEntitiesWithinHitbox(HitboxInfo[] hitboxes, int checkMask, ref List<LiveEntity> outList)
-    {
-        for (int i = 0; i < hitboxes.Length; i++)
-        {
-            GetLiveEntitiesWithinHitbox(hitboxes[i], checkMask, ref outList);
-        }
-    }
     private void GetLiveEntitiesWithinHitbox(HitboxInfo hitbox, int checkMask, ref List<LiveEntity> outList)
     {
         Vector2 hitboxPos = (Vector2)transform.position + new Vector2(hitbox.position.x * transform.lossyScale.x, hitbox.position.y * transform.lossyScale.y).Rotate(cardinalLookAngle);
@@ -134,11 +137,12 @@ public class PlayerControl : LiveEntity
         throw new System.NotImplementedException();
     }
 
-    private void DrawDebugHitbox(Vector3 relativePos, Vector2 size)
+    private void DrawDebugHitbox(Vector2 relativePos, Vector2 size)
     {
+        Debug.Log("HitboxInfo");
         if (combatArtHitbox == null) return;
-        combatArtHitbox.transform.localScale = size;
-        combatArtHitbox.transform.localPosition = relativePos;
+        combatArtHitbox.transform.localScale = size.Rotate(cardinalLookAngle);
+        combatArtHitbox.transform.localPosition = relativePos.Rotate(cardinalLookAngle);
     }
 
 
