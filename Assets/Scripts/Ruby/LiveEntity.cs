@@ -29,6 +29,13 @@ public abstract class LiveEntity : MonoBehaviour
     protected Animator combatEffectAnimator;
     protected Animator animator;
 
+    [Header("Death Animation")]
+    public float deathAnimDuration;
+    public float deathScaleMultiplier;
+    private Vector3 originalScale;
+    private Color originalColor;
+    private Color endColor;
+
     protected virtual void Awake() //if you get an acessibility error, change your awake to be protected instead of public. 
     {
         if(transform == null) transform = GetComponent<Transform>();
@@ -37,6 +44,10 @@ public abstract class LiveEntity : MonoBehaviour
         if (animator == null) animator = GetComponent<Animator>();
         if (combatEffect == null) combatEffect = combatEffectRotator.GetChild(0).transform; 
         if (combatEffect != null && combatEffectAnimator == null) combatEffectAnimator = combatEffect.GetComponent<Animator>();
+
+        originalScale = transform.localScale;
+        originalColor = spriteRenderer.color;
+        endColor = new Color(originalColor.r, originalColor.g, originalColor.b, 0);
     }
 
     public virtual void Move(Vector2 direction)
@@ -68,7 +79,7 @@ public abstract class LiveEntity : MonoBehaviour
 
         if(absLookAngle > 45 && absLookAngle < 135)
         {
-            spriteRenderer.flipX = false;
+            //spriteRenderer.flipX = false;
             if (direction.y > 0)
             {
                 SetSprite(1); //facing up
@@ -119,5 +130,24 @@ public abstract class LiveEntity : MonoBehaviour
     public void Push(float pushAngle, float pushMomentum)//knockback basically
     {
         velocity += new Vector2(Mathf.Cos(pushAngle * Mathf.Deg2Rad), Mathf.Sin(pushAngle * Mathf.Deg2Rad)) * (pushMomentum / rb.mass);
+    }
+
+    public virtual IEnumerator DieAnim()
+    {
+        float t = 0;
+        float smoothProgress = 0;
+        while(smoothProgress < 1)
+        {
+            t += GameManager.deltaTime;
+            smoothProgress = Mathf.SmoothStep(0, 1, t / deathAnimDuration);
+            transform.localScale = Vector3.Lerp(originalScale, originalScale * deathScaleMultiplier, smoothProgress);
+            spriteRenderer.color = Color.Lerp(originalColor, endColor, smoothProgress);
+            yield return new WaitForFixedUpdate();
+        }
+
+        gameObject.SetActive(false);
+
+        transform.localScale = originalScale;
+        spriteRenderer.color = originalColor;
     }
 }

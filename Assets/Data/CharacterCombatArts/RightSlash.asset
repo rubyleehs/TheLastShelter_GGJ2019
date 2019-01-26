@@ -15,10 +15,10 @@ MonoBehaviour:
   hitboxInfo:
     size: {x: 2, y: 0.5}
     position: {x: 0.8, y: 0}
-  damage: 10
+  damage: 50
   momentumInccuredAngle: 0
-  momentumInccuredMagnitude: 20
+  momentumInccuredMagnitude: 0
   momentumCausedAngle: 0
-  momentumCausedMagnitude: 10
+  momentumCausedMagnitude: 80
   durationOfAttack: 0.4
   animationName: PlayerSlash1

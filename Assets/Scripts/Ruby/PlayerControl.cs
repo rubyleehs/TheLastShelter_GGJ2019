@@ -108,6 +108,7 @@ public class PlayerControl : LiveEntity
 
         for (int i = 0; i < entitiesToDamage.Count; i++)
         {
+            Debug.Log(entitiesToDamage[i].name);
             entitiesToDamage[i].TakeDamage(art.damage);
             entitiesToDamage[i].Push(art.momentumCausedAngle + Vector2.SignedAngle(Vector2.right, entitiesToDamage[i].transform.position - transform.position), art.momentumCausedMagnitude);
         }
@@ -138,7 +139,6 @@ public class PlayerControl : LiveEntity
     public override void Die()
     {
         //maybe respawn or something after set time.
-        throw new System.NotImplementedException();
     }
 
     private void DrawDebugHitbox(Vector2 relativePos, Vector2 size)

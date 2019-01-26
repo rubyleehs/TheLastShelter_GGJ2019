@@ -97,6 +97,11 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7548833542429019856, guid: 4d64c1f351314734cb8b4c087605cc88,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7548833542429019857, guid: 4d64c1f351314734cb8b4c087605cc88,
         type: 3}
       propertyPath: atkRange

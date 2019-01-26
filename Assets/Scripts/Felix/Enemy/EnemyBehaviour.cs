@@ -62,7 +62,7 @@ public class EnemyBehaviour : LiveEntity
             if (pathfind.target.gameObject != null)
             {
                 float distance = Vector2.Distance(pathfind.target.transform.position, transform.position);
-                if (distance < atkRange)
+                if (distance < atkRange * transform.lossyScale.x)
                 {
                     //if enemy has target in range, dont move, just attack
                     canMove = false;
@@ -80,19 +80,21 @@ public class EnemyBehaviour : LiveEntity
         //trigger animation?
 
         //destroy object (set inactive back to pool)
-        gameObject.SetActive(false);
+        StartCoroutine(DieAnim());
 
         //deduct the totalEnemy in WaveManager
         WaveManager.totalEnemy--;
     }
 
+
+
     public override void Move(Vector2 direction)
-    {       
-        if (canMove)
-        {
-            base.Move(direction);
-            Face(direction);            
-        }
+    {
+        if (!canMove) direction = Vector2.zero;
+
+        base.Move(direction);
+        Face(direction);
+
     }
 
     IEnumerator disableAtkEffect(float delay)

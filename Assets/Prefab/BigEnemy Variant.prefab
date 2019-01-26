@@ -172,6 +172,11 @@ PrefabInstance:
       propertyPath: combatEffectRotator
       value: 
       objectReference: {fileID: 7294973634865547307}
+    - target: {fileID: 2044266220700070657, guid: 60661c6467366d94fb9c5a3a4c59d089,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60661c6467366d94fb9c5a3a4c59d089, type: 3}
 --- !u!4 &1565875440806789722 stripped
