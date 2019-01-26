@@ -92,7 +92,7 @@ public class EnemyBehaviour : LiveEntity
         {
             base.Move(direction);
             Face(direction);
-            atkEffect.transform.localRotation = new Quaternion(0, 0, cardinalLookAngle, 0); //need to be change
+            
         }
     }
 

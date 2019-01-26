@@ -32,7 +32,7 @@ public class WaveManager : MonoBehaviour
 
     static float countdownTimer;                //used to countdown the transition time
     public Queue<Wave> waves = new Queue<Wave>();
-    public Wave currentWave;
+    public static Wave currentWave;
 
 
     // Start is called before the first frame update
@@ -51,9 +51,15 @@ public class WaveManager : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {        
         if (totalEnemy <= 0)
             isWaveFinish = true;
+        else
+        {
+            if (currentWave.normalEnemyNum <= 0) currentWave.isFinishNormalEnemy = true;
+            if (currentWave.fastEnemyNum <= 0) currentWave.isFinishFastEnemy = true;
+            if (currentWave.bigEnemyNum <= 0) currentWave.isFinishBigEnemy = true;
+        }
 
         if (isWaveFinish)
         {

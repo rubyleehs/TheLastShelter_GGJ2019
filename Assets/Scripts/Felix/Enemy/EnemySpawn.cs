@@ -29,7 +29,7 @@ public class EnemySpawn : MonoBehaviour
     }
 
     void Update()
-    {
+    {       
         if (spawnTimer > 0)
         {
             spawnTimer -= GameManager.deltaTime;
@@ -45,14 +45,25 @@ public class EnemySpawn : MonoBehaviour
     {
         //determine which enemy should be spawn based on currentWave left enemies
         //only spawn enemies when there is leftover enemies in that particular wave to spawn
-        if (WaveManager.totalEnemy > 0)
-        {
-            //GameObject[]
+        //add in enemy's index if they are available to spawn
+        List<int> availableEnemy = new List<int>();
+        if (!WaveManager.currentWave.isFinishNormalEnemy) availableEnemy.Add((int)enemyType.normalEnemy);
+        if (!WaveManager.currentWave.isFinishFastEnemy) availableEnemy.Add((int)enemyType.fastEnemy);
+        if (!WaveManager.currentWave.isFinishBigEnemy) availableEnemy.Add((int)enemyType.bigEnemy);
 
+        if (availableEnemy.Count > 0)
+        {         
+            //within the available enemy list, we random to determine which enemy type to spawn (getting the enemy index)
+            int prefabToSpawnIndex = Random.Range(0, availableEnemy.Count);
+            int posToSpawn = Random.Range(0, spawnPoint.Length);
+
+            //use the randomed index to refer to actual enemies array to spawn enemy
+            poolManager.ReuseObject(objPrefabs[availableEnemy[prefabToSpawnIndex]], spawnPoint[posToSpawn].position, spawnPoint[posToSpawn].rotation);
+
+            //deduct the available enemy after spawning
+            if (availableEnemy[prefabToSpawnIndex] == (int)enemyType.normalEnemy) WaveManager.currentWave.normalEnemyNum--;
+            if (availableEnemy[prefabToSpawnIndex] == (int)enemyType.fastEnemy) WaveManager.currentWave.fastEnemyNum--;
+            if (availableEnemy[prefabToSpawnIndex] == (int)enemyType.bigEnemy) WaveManager.currentWave.bigEnemyNum--;
         }
-        int prefabToSpawnIndex = Random.Range(0, objPrefabs.Length);
-        int posToSpawn = Random.Range(0, spawnPoint.Length);
-
-        poolManager.ReuseObject(objPrefabs[prefabToSpawnIndex], spawnPoint[posToSpawn].position, spawnPoint[posToSpawn].rotation);
     }
 }

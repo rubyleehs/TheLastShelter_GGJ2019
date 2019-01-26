@@ -237,13 +237,14 @@ MonoBehaviour:
   currentHP: 50
   moveSpeed: 5
   stationarySpeedBoostRatio: 1.5
-  atkDmg: 0
   transform: {fileID: 0}
   rb: {fileID: 0}
   spriteRenderer: {fileID: 0}
+  combatEffect: {fileID: 242720671}
   atkEffect: {fileID: 242720668}
   atkRange: 1
   atkCooldown: 3
+  atkDmg: 1
 --- !u!61 &4625550125031075325
 BoxCollider2D:
   m_ObjectHideFlags: 0

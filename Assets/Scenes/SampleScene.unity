@@ -363,10 +363,10 @@ MonoBehaviour:
   currentHP: 50
   moveSpeed: 5
   stationarySpeedBoostRatio: 1.5
-  atkDmg: 0
   transform: {fileID: 0}
   rb: {fileID: 0}
   spriteRenderer: {fileID: 0}
+  combatEffect: {fileID: 0}
   inputScheme:
     upKey: 0
     downKey: 0
@@ -1900,10 +1900,10 @@ MonoBehaviour:
   currentHP: 50
   moveSpeed: 5
   stationarySpeedBoostRatio: 1.5
-  atkDmg: 0
   transform: {fileID: 0}
   rb: {fileID: 0}
   spriteRenderer: {fileID: 0}
+  combatEffect: {fileID: 0}
   inputScheme:
     upKey: 0
     downKey: 0

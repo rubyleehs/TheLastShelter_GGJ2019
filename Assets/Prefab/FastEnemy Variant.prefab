@@ -122,6 +122,11 @@ PrefabInstance:
       propertyPath: atkEffect
       value: 
       objectReference: {fileID: 8402706829235642957}
+    - target: {fileID: 7548833542429019857, guid: 4d64c1f351314734cb8b4c087605cc88,
+        type: 3}
+      propertyPath: combatEffect
+      value: 
+      objectReference: {fileID: 8402706829235642958}
     - target: {fileID: 4625550125031075325, guid: 4d64c1f351314734cb8b4c087605cc88,
         type: 3}
       propertyPath: m_Offset.x
@@ -137,6 +142,12 @@ PrefabInstance:
 --- !u!1 &8402706829235642957 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 242720668, guid: 4d64c1f351314734cb8b4c087605cc88,
+    type: 3}
+  m_PrefabInstance: {fileID: 8402706829064371665}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8402706829235642958 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 242720671, guid: 4d64c1f351314734cb8b4c087605cc88,
     type: 3}
   m_PrefabInstance: {fileID: 8402706829064371665}
   m_PrefabAsset: {fileID: 0}
