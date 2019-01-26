@@ -48,7 +48,7 @@ public class EnemyBehaviour : LiveEntity
         StartCoroutine(disableAtkEffect(.3f));
 
         //cause damage to target
-        pathfind.target.GetComponent<PlayerControl>().TakeDamage(atkDmg);
+        pathfind.target.GetComponent<LiveEntity>().TakeDamage(atkDmg);
     }
 
     bool canAtk()
@@ -96,11 +96,10 @@ public class EnemyBehaviour : LiveEntity
 
     public override void Move(Vector2 direction)
     {
-        Debug.Log("move");
         if (!canMove) direction = Vector2.zero;
 
         base.Move(direction);
-        Face(direction, false);
+        if(direction.sqrMagnitude > 0.1f) Face(direction, false);
 
     }
 

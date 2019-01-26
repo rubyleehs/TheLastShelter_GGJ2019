@@ -10,7 +10,8 @@ public class GameManager : MonoBehaviour {
     public static List<Transform> friendlies = new List<Transform>();
 
     public GameObject winTxt;
-    
+    public GameObject loseTxt;
+
     private void Start()
     {
         //adding all friendly object's transform into list for pathfinding reference
@@ -29,5 +30,10 @@ public class GameManager : MonoBehaviour {
             winTxt.SetActive(true);
 
         //play some particles?
+    }
+
+    public void loseGame()
+    {
+        loseTxt.SetActive(true);
     }
 }
