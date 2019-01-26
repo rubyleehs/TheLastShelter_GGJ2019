@@ -47,11 +47,12 @@ public class WaveManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        waves.Add(new Wave(1, 1, 1, 3));
-        waves.Add(new Wave(10, 3, 0, 2.5f));
-        waves.Add(new Wave(15, 8, 1, 2));
-        waves.Add(new Wave(20, 15, 5, 1.5f));
-        waves.Add(new Wave(30, 15, 10, 1));
+        waves.Add(new Wave(20, 0, 1, 3));
+        waves.Add(new Wave(30, 5, 3, 2));
+        waves.Add(new Wave(30, 20, 10, 1.5f));
+        waves.Add(new Wave(40, 25, 20, 1f));
+        waves.Add(new Wave(50, 30, 25, 0.5f));
+        waves.Add(new Wave(60, 50, 30, 0.2f));
 
         currentWave = waves[currentWaveIndex];
         totalEnemy = currentWave.normalEnemyNum + currentWave.fastEnemyNum + currentWave.bigEnemyNum;

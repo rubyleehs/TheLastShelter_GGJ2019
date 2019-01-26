@@ -264,9 +264,9 @@ MonoBehaviour:
   - {fileID: 21300004, guid: f9faf227e7f9ce94b8c95fd1e9afe628, type: 3}
   - {fileID: 21300002, guid: f9faf227e7f9ce94b8c95fd1e9afe628, type: 3}
   - {fileID: 21300000, guid: f9faf227e7f9ce94b8c95fd1e9afe628, type: 3}
-  maxHP: 50
-  currentHP: 50
-  moveSpeed: 5
+  maxHP: 70
+  currentHP: 70
+  moveSpeed: 8
   stationarySpeedBoostRatio: 1.5
   transform: {fileID: 0}
   rb: {fileID: 0}
@@ -275,8 +275,8 @@ MonoBehaviour:
   deathAnimDuration: 0.3
   deathScaleMultiplier: 2
   atkEffect: {fileID: 242720668}
-  atkRange: 3
-  atkCooldown: 4
+  atkRange: 2
+  atkCooldown: 3
   atkDmg: 2
 --- !u!61 &4625550125031075325
 BoxCollider2D:

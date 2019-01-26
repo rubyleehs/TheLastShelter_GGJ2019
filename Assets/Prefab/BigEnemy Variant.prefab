@@ -154,7 +154,7 @@ PrefabInstance:
     - target: {fileID: 2044266220700070656, guid: 60661c6467366d94fb9c5a3a4c59d089,
         type: 3}
       propertyPath: moveSpeed
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2044266220700070656, guid: 60661c6467366d94fb9c5a3a4c59d089,
         type: 3}
@@ -184,7 +184,7 @@ PrefabInstance:
     - target: {fileID: 2044266220700070656, guid: 60661c6467366d94fb9c5a3a4c59d089,
         type: 3}
       propertyPath: atkCooldown
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2044266220700070656, guid: 60661c6467366d94fb9c5a3a4c59d089,
         type: 3}
