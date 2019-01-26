@@ -8,11 +8,12 @@ public class EnemyBehaviour : LiveEntity
     PathFinding pathfind;
     public GameObject atkEffect;
     Animator atkAnim;
-
     public float atkRange;
     public float atkCooldown;
     public int atkDmg;
-    float atkTimer;
+    float atkTimer = 0;
+    float inRangeDelay = 0.3f; //when enemy is in the atk range (to player), delay for 0.2s then only attack
+    float delayTimer;          //used to countdown inRangeDelay
     bool canMove = true; //to prevent enemy to move while attacking
 
 
@@ -20,16 +21,15 @@ public class EnemyBehaviour : LiveEntity
     void Start()
     {
         pathfind = GetComponent<PathFinding>();
-        atkTimer = atkCooldown;
         atkAnim = atkEffect.GetComponent<Animator>();
+        delayTimer = inRangeDelay;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (canAtk())
-        {
-            print("ATK!");
+        if (!hasDied && canAtk())
+        {            
             Attack();
         }       
     }
@@ -41,36 +41,41 @@ public class EnemyBehaviour : LiveEntity
 
         //reset cooldown
         atkTimer = atkCooldown;
+        delayTimer = inRangeDelay; //reset delay timer once enemy is not in range to player
 
         //trigger attack animation
         atkEffect.SetActive(true);
-        StartCoroutine(disableAtkEffect(.5f));
+        StartCoroutine(disableAtkEffect(.3f));
 
         //cause damage to target
         pathfind.target.GetComponent<PlayerControl>().TakeDamage(atkDmg);
     }
 
     bool canAtk()
-    {        
-        //check cooldown
-        if (atkTimer > 0) //still in cooldown            
-            atkTimer -= GameManager.deltaTime;
+    {
+        //calculate cooldown
+        atkTimer -= GameManager.deltaTime;
 
-        else //finished cooldown            
+        //check distance with target        
+        if (pathfind.target.gameObject != null)
         {
-            //check distance with target        
-            if (pathfind.target.gameObject != null)
+            float distance = Vector2.Distance(pathfind.target.transform.position, transform.position);
+            if (distance < atkRange * transform.lossyScale.x)
             {
-                float distance = Vector2.Distance(pathfind.target.transform.position, transform.position);
-                if (distance < atkRange * transform.lossyScale.x)
-                {
-                    //if enemy has target in range, dont move, just attack
-                    canMove = false;
-                    return true;
-                }
-                else
-                    canMove = true;
-            }            
+                //if enemy has target in range, dont move, just attack
+                canMove = false;
+                //countdown for delay attack                
+                delayTimer -= GameManager.deltaTime;                
+                //check cooldown
+                if (atkTimer < 0 && delayTimer < 0) //cooldown finish && delay finish     
+                    return true;                
+            }
+            else
+            {
+                canMove = true;
+                delayTimer = inRangeDelay; //reset delay timer once enemy is not in range to player
+            }
+                
         }
         return false;     
     }

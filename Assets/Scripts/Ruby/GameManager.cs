@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour {
 
     public static List<Transform> friendlies = new List<Transform>();
 
+    public GameObject winTxt;
+    
     private void Start()
     {
         //adding all friendly object's transform into list for pathfinding reference
@@ -20,4 +22,12 @@ public class GameManager : MonoBehaviour {
     {
         deltaTime = Time.deltaTime * timeScale;
 	}
+
+    public void winGame()
+    {
+        if (!winTxt.activeSelf)
+            winTxt.SetActive(true);
+
+        //play some particles?
+    }
 }

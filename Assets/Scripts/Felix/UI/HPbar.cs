@@ -22,6 +22,5 @@ public class HPbar : MonoBehaviour
 
         //update fill amount based on player current's hp value
         healthBarUI.fillAmount = (targetState.currentHP / 100f);
-        print(healthBarUI.fillAmount);
     }
 }
