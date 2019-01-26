@@ -28,12 +28,14 @@ public abstract class LiveEntity : MonoBehaviour
     public Transform combatEffectRotator;
     protected Transform combatEffect;
     protected Animator combatEffectAnimator;
+    protected Animator animator;
 
     protected virtual void Awake() //if you get an acessibility error, change your awake to be protected instead of public. 
     {
         if(transform == null) transform = GetComponent<Transform>();
         if(rb == null) rb = GetComponent<Rigidbody2D>();
         if (spriteRenderer == null) spriteRenderer = GetComponent<SpriteRenderer>();
+        if (animator == null) animator = GetComponent<Animator>();
         if (combatEffect == null) combatEffect = combatEffectRotator.GetChild(0).transform; 
         if (combatEffect != null && combatEffectAnimator == null) combatEffectAnimator = combatEffect.GetComponent<Animator>();
     }
@@ -70,18 +72,18 @@ public abstract class LiveEntity : MonoBehaviour
             spriteRenderer.flipX = false;
             if (direction.y > 0)
             {
-                spriteRenderer.sprite = sprites[1]; //facing up
+                SetSprite(1); //facing up
                 cardinalLookAngle = 90;
             }
             else
             {
-                spriteRenderer.sprite = sprites[2]; //facing down
+                SetSprite(2); //facing down
                 cardinalLookAngle = -90;
             }
         }
         else
         {
-            spriteRenderer.sprite = sprites[0];
+            SetSprite(0);
             if (direction.x > 0)
             {
                 spriteRenderer.flipX = false; //facing right
@@ -95,6 +97,12 @@ public abstract class LiveEntity : MonoBehaviour
         }
 
         combatEffectRotator.eulerAngles = Vector3.forward * cardinalLookAngle;
+    }
+
+    private void SetSprite(int index)
+    {
+        if (index > sprites.Length - 1) return;
+        spriteRenderer.sprite = sprites[index];
     }
 
     public abstract void Attack();
