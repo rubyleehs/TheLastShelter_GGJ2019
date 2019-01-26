@@ -15,7 +15,8 @@ public class PathFinding : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        pathfinding();
+        if (enemyMovement.currentHP > 0)
+            pathfinding();
     }
 
     void pathfinding()
