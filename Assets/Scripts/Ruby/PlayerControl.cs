@@ -36,6 +36,7 @@ public class PlayerControl : LiveEntity
     protected bool allowInput = true;
     protected bool isAttacking = false;
 
+
     private void Update()
     {
         durationSinceLastAttack += GameManager.deltaTime;
@@ -48,7 +49,7 @@ public class PlayerControl : LiveEntity
     {
         //Movement related Inputs
         inputAxis = Vector2.zero;
-        if (allowInput)
+        if (allowInput && !isAttacking)
         {
             //key inputs to axial input
             if (Input.GetKey(inputScheme.upKey)) inputAxis += Vector2.up;
@@ -89,6 +90,7 @@ public class PlayerControl : LiveEntity
         isAttacking = true;
         comboCount++;
 
+        combatEffectAnimator.Play(art.animationName);
         DealDamage(art);
         Push(art.momentumInccuredAngle + lookAngle, art.momentumInccuredMagnitude);
         yield return new WaitForSeconds(art.durationOfAttack);
