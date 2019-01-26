@@ -68,7 +68,7 @@ public class PlayerControl : LiveEntity
         //Attack related inputs
         if (allowInput)
         {
-            if (Input.GetKey(inputScheme.attackKey)) Attack();
+            if (Input.GetKeyDown(inputScheme.attackKey)) Attack();
         }
     }
 
