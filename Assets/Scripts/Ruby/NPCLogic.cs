@@ -31,9 +31,9 @@ public class NPCLogic : LiveEntity
 
     private void SmartMove()
     {
-        delta = (Vector2)transform.position - targetPos;
+        delta = targetPos - (Vector2)transform.position ;
         timeSinceLastWanderCheck += GameManager.deltaTime;
-        if (delta.sqrMagnitude < 1 && timeSinceLastWanderCheck > wanderCheckIntervalDuration) 
+        if (delta.sqrMagnitude < 2f && timeSinceLastWanderCheck > wanderCheckIntervalDuration) 
         {
             timeSinceLastWanderCheck = 0;
             if (Random.Range(0f, 1f) <= wanderChance) FindRandomTargetPos();
@@ -42,8 +42,10 @@ public class NPCLogic : LiveEntity
         animator.SetBool("isMoving", rb.velocity.sqrMagnitude > 0.2f);
         animator.SetInteger("YFaceDir", (int)(cardinalLookAngle / 90) % 2);
 
-        Move(delta);
+        if (delta.sqrMagnitude > 2f) Move(delta);
         Face(delta,true);
+
+
     }
 
     private void FindRandomTargetPos()
@@ -55,7 +57,7 @@ public class NPCLogic : LiveEntity
         {
             targetPos = (Vector2)wanderFollow.position + Random.insideUnitCircle * Random.Range(stepDistance.x, stepDistance.y);
             d = (homePos - targetPos).magnitude;
-            if (d > wanderRadius.x && d < wanderRadius.y) isValidTargetPos.Equals(true);
+            if (d > wanderRadius.x && d < wanderRadius.y) isValidTargetPos = true;
         }
     }
     
