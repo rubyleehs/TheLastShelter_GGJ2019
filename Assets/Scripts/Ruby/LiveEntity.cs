@@ -74,7 +74,7 @@ public abstract class LiveEntity : MonoBehaviour
         }
     }
 
-    public virtual void Face(Vector2 direction)
+    public virtual void Face(Vector2 direction, bool isCardinal)
     {
         lookAngle = Vector2.SignedAngle(Vector2.right, direction);
         float absLookAngle = Mathf.Abs(lookAngle);
@@ -108,7 +108,8 @@ public abstract class LiveEntity : MonoBehaviour
             }
         }
 
-        combatEffectRotator.eulerAngles = Vector3.forward * cardinalLookAngle;
+        if (isCardinal) combatEffectRotator.eulerAngles = Vector3.forward * cardinalLookAngle;
+        else combatEffectRotator.eulerAngles = Vector3.forward * lookAngle;
     }
 
     private void SetSprite(int index)
