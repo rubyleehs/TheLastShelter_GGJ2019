@@ -23,6 +23,7 @@ public class PlayerControl : LiveEntity
 
     [Header("Player Combat and Attack Arts")]
     public LayerMask canHitLayer;
+    public LayerMask obstacleLayer;
     public CombatArt[] combatArts;
     protected int attackChainPosition;
     protected int comboCount;
@@ -130,7 +131,9 @@ public class PlayerControl : LiveEntity
         for (int i = 0; i < collidersWithinHitbox.Length; i++)
         {
             _liveEntityCheck = collidersWithinHitbox[i].GetComponent<LiveEntity>();
-
+            if (_liveEntityCheck == null) continue;
+            Vector2 delta = collidersWithinHitbox[i].transform.position - transform.position;
+            if (Physics2D.Raycast(transform.position,delta,delta.magnitude,obstacleLayer))
             if (_liveEntityCheck != null && !outList.Contains(_liveEntityCheck))
             {
                 outList.Add(_liveEntityCheck);
