@@ -148,15 +148,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300002, guid: 5ad66c84e4e62b94cbb2acd605531981, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.18, y: 0.36}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &365069931
@@ -191,9 +191,10 @@ GameObject:
   - component: {fileID: 4620641839901318857}
   - component: {fileID: 4620641839901318862}
   - component: {fileID: 891231527}
+  - component: {fileID: 891231528}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: FRIENDLIES
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -277,12 +278,14 @@ MonoBehaviour:
   sprites: []
   maxHP: 0
   currentHP: 0
-  moveSpeed: 2.5
+  moveSpeed: 5.2
   stationarySpeedBoostRatio: 2
   transform: {fileID: 4620641839901318859}
   rb: {fileID: 4620641839901318862}
   spriteRenderer: {fileID: 4620641839901318856}
   combatEffectRotator: {fileID: 77623298052107017}
+  deathAnimDuration: 0
+  deathScaleMultiplier: 0
   inputScheme:
     upKey: 119
     downKey: 115
@@ -291,7 +294,7 @@ MonoBehaviour:
     attackKey: 304
   canHitLayer:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 256
   combatArts:
   - {fileID: 11400000, guid: 1f67fc6089da4ad4c90554e8466995fe, type: 2}
   attackChainBreakDuration: 2
@@ -317,7 +320,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!95 &891231527
 Animator:
   serializedVersion: 3
@@ -337,6 +340,32 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!61 &891231528
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4620641839901318863}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.04}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 2}
+    newSize: {x: 1.28, y: 1.28}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.18, y: 0.18}
+  m_EdgeRadius: 0
 --- !u!1 &6487698439951728261
 GameObject:
   m_ObjectHideFlags: 0
