@@ -91,8 +91,7 @@ public class EnemyBehaviour : LiveEntity
         if (canMove)
         {
             base.Move(direction);
-            Face(direction);
-            
+            Face(direction);            
         }
     }
 

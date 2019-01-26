@@ -11,7 +11,6 @@ public class EnemySpawn : MonoBehaviour
 
     public Transform[] spawnPoint;
 
-    public float spawnCooldown; //the cooldown should vary upon difficuly (later waves has lower cooldown)
     public static float spawnTimer; //used to count down to spawn
 
     void Start()
@@ -21,11 +20,10 @@ public class EnemySpawn : MonoBehaviour
         for (int x = 0; x < objPrefabs.Length; x++)
         {
             //this line do the game object instantiations, which objPrefab and how many to spawn
-            poolManager.CreatePool(objPrefabs[x], 100);
+            poolManager.CreatePool(objPrefabs[x], 50);
         }
 
-        //Initialize spawn cooldown
-        spawnCooldown = 3f;
+        spawnTimer = WaveManager.currentWave.spawnSpeed;
     }
 
     void Update()
@@ -36,7 +34,7 @@ public class EnemySpawn : MonoBehaviour
         }
         else //timer is finished! spawn enemy
         {
-            spawnTimer = spawnCooldown;
+            spawnTimer = WaveManager.currentWave.spawnSpeed;
             spawnEnemy();
         }
     }
