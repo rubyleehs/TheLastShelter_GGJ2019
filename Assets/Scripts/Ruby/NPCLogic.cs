@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class NPCLogic : LiveEntity
 {
+    public GameManager gm;
+
     [Header("Wander Logic")]
     public Vector2 homePos;
     public Vector2 wanderRadius;
@@ -68,7 +70,7 @@ public class NPCLogic : LiveEntity
 
     public override void Die()
     {
-        throw new System.NotImplementedException();
+        gm.loseGame();
     }
 
 }
