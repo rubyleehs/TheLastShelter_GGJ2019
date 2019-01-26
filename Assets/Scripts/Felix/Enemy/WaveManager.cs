@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public struct Wave
 {
@@ -43,6 +44,9 @@ public class WaveManager : MonoBehaviour
     public TextMeshProUGUI waveTxt;
     public TextMeshProUGUI transitionTxt;
     public GameManager gm;
+
+    //transition FillAmount references
+    public Image[] transitionFill;
 
     // Start is called before the first frame update
     void Start()
@@ -90,6 +94,11 @@ public class WaveManager : MonoBehaviour
                     transitionTxt.gameObject.SetActive(true);
                 transitionTxt.SetText("Next wave in: " + ((int)countdownTimer).ToString());
                 countdownTimer -= GameManager.deltaTime;
+                for (int x = 0; x < transitionFill.Length; x++)
+                {
+                    transitionFill[x].fillAmount = (countdownTimer / 10);
+                }
+
             }                
             else
             {

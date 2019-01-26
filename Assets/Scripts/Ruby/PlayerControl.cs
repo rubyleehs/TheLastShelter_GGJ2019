@@ -15,6 +15,8 @@ public struct InputScheme
 
 public class PlayerControl : LiveEntity
 {
+    public GameManager gm; //to end the game when one of the player die
+
     [Header("Player Control Specifics")]
     public InputScheme inputScheme; 
     protected Vector2 inputAxis;
@@ -32,10 +34,11 @@ public class PlayerControl : LiveEntity
     [Header("Debugging")]
     public Transform combatArtHitbox;
 
-
+       
     protected bool allowInput = true;
     protected bool isAttacking = false;
 
+  
 
     private void Update()
     {
@@ -138,7 +141,7 @@ public class PlayerControl : LiveEntity
 
     public override void Die()
     {
-        //maybe respawn or something after set time.
+        gm.loseGame();
     }
 
     private void DrawDebugHitbox(Vector2 relativePos, Vector2 size)
