@@ -36,6 +36,8 @@ public abstract class LiveEntity : MonoBehaviour
     private Color originalColor;
     private Color endColor;
 
+    protected bool hasDied = false;
+
     protected virtual void Awake() //if you get an acessibility error, change your awake to be protected instead of public. 
     {
         if(transform == null) transform = GetComponent<Transform>();

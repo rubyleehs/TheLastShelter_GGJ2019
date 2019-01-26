@@ -272,8 +272,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   spriteRenderer: {fileID: 0}
   combatEffectRotator: {fileID: 1748857531079672996}
-  deathAnimDuration: 0
-  deathScaleMultiplier: 0
+  deathAnimDuration: 0.7
+  deathScaleMultiplier: 1.3
   atkEffect: {fileID: 242720668}
   atkRange: 3
   atkCooldown: 4

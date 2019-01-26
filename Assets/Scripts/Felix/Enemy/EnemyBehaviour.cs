@@ -78,7 +78,8 @@ public class EnemyBehaviour : LiveEntity
     public override void Die()
     {
         //trigger animation?
-
+        if (hasDied) return;
+        hasDied = true;
         //destroy object (set inactive back to pool)
         StartCoroutine(DieAnim());
 
