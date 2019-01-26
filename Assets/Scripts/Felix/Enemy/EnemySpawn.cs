@@ -5,7 +5,10 @@ using UnityEngine;
 public class EnemySpawn : MonoBehaviour
 {
     PoolManager poolManager;
+
     public GameObject[] objPrefabs;
+    enum enemyType { normalEnemy, fastEnemy, bigEnemy }
+
     public Transform[] spawnPoint;
 
     public float spawnCooldown; //the cooldown should vary upon difficuly (later waves has lower cooldown)
@@ -40,6 +43,13 @@ public class EnemySpawn : MonoBehaviour
 
     void spawnEnemy()
     {
+        //determine which enemy should be spawn based on currentWave left enemies
+        //only spawn enemies when there is leftover enemies in that particular wave to spawn
+        if (WaveManager.totalEnemy > 0)
+        {
+            //GameObject[]
+
+        }
         int prefabToSpawnIndex = Random.Range(0, objPrefabs.Length);
         int posToSpawn = Random.Range(0, spawnPoint.Length);
 

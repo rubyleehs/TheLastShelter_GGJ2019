@@ -11,6 +11,7 @@ public class EnemyBehaviour : LiveEntity
 
     public float atkRange;
     public float atkCooldown;
+    public int atkDmg;
     float atkTimer;
     bool canMove = true; //to prevent enemy to move while attacking
 
@@ -80,6 +81,9 @@ public class EnemyBehaviour : LiveEntity
 
         //destroy object (set inactive back to pool)
         gameObject.SetActive(false);
+
+        //deduct the totalEnemy in WaveManager
+        WaveManager.totalEnemy--;
     }
 
     public override void Move(Vector2 direction)

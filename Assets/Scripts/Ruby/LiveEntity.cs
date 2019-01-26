@@ -12,9 +12,7 @@ public abstract class LiveEntity : MonoBehaviour
     public float currentHP;
 
     public float moveSpeed;    
-    public float stationarySpeedBoostRatio; //to overcome inertia so player don't feel "sticky"
-
-    public int atkDmg;
+    public float stationarySpeedBoostRatio; //to overcome inertia so player don't feel "sticky"    
 
     //Runtime Values
     [HideInInspector]
