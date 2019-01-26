@@ -141,6 +141,7 @@ public abstract class LiveEntity : MonoBehaviour
         float smoothProgress = 0;
         while(smoothProgress < 1)
         {
+            Move(Vector2.zero);
             t += GameManager.deltaTime;
             smoothProgress = Mathf.SmoothStep(0, 1, t / deathAnimDuration);
             transform.localScale = Vector3.Lerp(originalScale, originalScale * deathScaleMultiplier, smoothProgress);

@@ -91,6 +91,7 @@ public class EnemyBehaviour : LiveEntity
 
     public override void Move(Vector2 direction)
     {
+        Debug.Log("move");
         if (!canMove) direction = Vector2.zero;
 
         base.Move(direction);
