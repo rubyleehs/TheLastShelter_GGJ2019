@@ -60,7 +60,7 @@ public class PlayerControl : LiveEntity
         }
 
         Move(inputAxis);
-        if (inputAxis.sqrMagnitude > 0.1f && !isAttacking) Face(inputAxis);
+        if (inputAxis.sqrMagnitude > 0.1f && !isAttacking) Face(inputAxis, true);
 
         animator.SetBool("isMoving", inputAxis.sqrMagnitude > 0.2f);
         animator.SetInteger("YFaceDir", (int)(cardinalLookAngle/90)%2);

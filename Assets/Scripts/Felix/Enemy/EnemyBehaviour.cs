@@ -93,7 +93,7 @@ public class EnemyBehaviour : LiveEntity
         if (!canMove) direction = Vector2.zero;
 
         base.Move(direction);
-        Face(direction);
+        Face(direction, false);
 
     }
 
