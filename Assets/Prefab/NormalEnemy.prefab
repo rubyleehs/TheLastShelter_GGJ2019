@@ -25,11 +25,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 242720668}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.81, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.8100004, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 7548833542429019861}
+  m_Father: {fileID: 1748857531079672996}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &242720670
@@ -99,6 +99,37 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &6925434286214513758
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1748857531079672996}
+  m_Layer: 0
+  m_Name: CombatEffectRotator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1748857531079672996
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6925434286214513758}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 242720671}
+  m_Father: {fileID: 7548833542429019861}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7548833542429019870
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,7 +162,7 @@ Transform:
   m_LocalPosition: {x: -15.14, y: -0.99, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 242720671}
+  - {fileID: 1748857531079672996}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -237,13 +268,14 @@ MonoBehaviour:
   currentHP: 50
   moveSpeed: 5
   stationarySpeedBoostRatio: 1.5
-  atkDmg: 0
   transform: {fileID: 0}
   rb: {fileID: 0}
   spriteRenderer: {fileID: 0}
+  combatEffectRotator: {fileID: 1748857531079672996}
   atkEffect: {fileID: 242720668}
-  atkRange: 1
-  atkCooldown: 3
+  atkRange: 2
+  atkCooldown: 4
+  atkDmg: 2
 --- !u!61 &4625550125031075325
 BoxCollider2D:
   m_ObjectHideFlags: 0

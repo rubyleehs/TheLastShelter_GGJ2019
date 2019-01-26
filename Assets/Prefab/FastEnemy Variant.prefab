@@ -105,7 +105,7 @@ PrefabInstance:
     - target: {fileID: 7548833542429019857, guid: 4d64c1f351314734cb8b4c087605cc88,
         type: 3}
       propertyPath: atkCooldown
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7548833542429019857, guid: 4d64c1f351314734cb8b4c087605cc88,
         type: 3}
@@ -122,6 +122,16 @@ PrefabInstance:
       propertyPath: atkEffect
       value: 
       objectReference: {fileID: 8402706829235642957}
+    - target: {fileID: 7548833542429019857, guid: 4d64c1f351314734cb8b4c087605cc88,
+        type: 3}
+      propertyPath: combatEffect
+      value: 
+      objectReference: {fileID: 8402706829235642958}
+    - target: {fileID: 7548833542429019857, guid: 4d64c1f351314734cb8b4c087605cc88,
+        type: 3}
+      propertyPath: combatEffectRotator
+      value: 
+      objectReference: {fileID: 7843399181768341877}
     - target: {fileID: 4625550125031075325, guid: 4d64c1f351314734cb8b4c087605cc88,
         type: 3}
       propertyPath: m_Offset.x
@@ -134,9 +144,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d64c1f351314734cb8b4c087605cc88, type: 3}
+--- !u!4 &7843399181768341877 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1748857531079672996, guid: 4d64c1f351314734cb8b4c087605cc88,
+    type: 3}
+  m_PrefabInstance: {fileID: 8402706829064371665}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8402706829235642957 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 242720668, guid: 4d64c1f351314734cb8b4c087605cc88,
+    type: 3}
+  m_PrefabInstance: {fileID: 8402706829064371665}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8402706829235642958 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 242720671, guid: 4d64c1f351314734cb8b4c087605cc88,
     type: 3}
   m_PrefabInstance: {fileID: 8402706829064371665}
   m_PrefabAsset: {fileID: 0}

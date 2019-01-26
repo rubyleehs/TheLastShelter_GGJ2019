@@ -14,7 +14,6 @@ public abstract class LiveEntity : MonoBehaviour
     public float moveSpeed;    
     public float stationarySpeedBoostRatio; //to overcome inertia so player don't feel "sticky"    
 
-
     //Runtime Values
     [HideInInspector]
     protected float lookAngle; //in degrees; 0 is to the right, ANTICLOCKWISE direction is positive, from -180 to 180
