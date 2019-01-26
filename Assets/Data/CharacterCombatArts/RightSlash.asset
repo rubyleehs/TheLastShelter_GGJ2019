@@ -17,7 +17,8 @@ MonoBehaviour:
     position: {x: 0.8, y: 0}
   damage: 10
   momentumInccuredAngle: 0
-  momentumInccuredMagnitude: 10
+  momentumInccuredMagnitude: 20
   momentumCausedAngle: 0
   momentumCausedMagnitude: 10
-  durationOfAttack: 0
+  durationOfAttack: 0.4
+  animationName: PlayerSlash1

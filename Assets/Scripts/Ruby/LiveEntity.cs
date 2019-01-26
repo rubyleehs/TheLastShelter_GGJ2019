@@ -25,7 +25,8 @@ public abstract class LiveEntity : MonoBehaviour
     public new Transform transform;
     public Rigidbody2D rb;
     public SpriteRenderer spriteRenderer;
-    public Transform combatEffect;
+    public Transform combatEffectRotator;
+    protected Transform combatEffect;
     protected Animator combatEffectAnimator;
 
     protected virtual void Awake() //if you get an acessibility error, change your awake to be protected instead of public. 
@@ -33,6 +34,7 @@ public abstract class LiveEntity : MonoBehaviour
         if(transform == null) transform = GetComponent<Transform>();
         if(rb == null) rb = GetComponent<Rigidbody2D>();
         if (spriteRenderer == null) spriteRenderer = GetComponent<SpriteRenderer>();
+        if (combatEffect == null) combatEffect = combatEffectRotator.GetChild(0).transform; 
         if (combatEffect != null && combatEffectAnimator == null) combatEffectAnimator = combatEffect.GetComponent<Animator>();
     }
 
@@ -91,6 +93,8 @@ public abstract class LiveEntity : MonoBehaviour
                 cardinalLookAngle = 180;
             }
         }
+
+        combatEffectRotator.eulerAngles = Vector3.forward * cardinalLookAngle;
     }
 
     public abstract void Attack();

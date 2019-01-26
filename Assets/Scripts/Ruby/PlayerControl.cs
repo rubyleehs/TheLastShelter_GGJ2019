@@ -60,7 +60,7 @@ public class PlayerControl : LiveEntity
         }
 
         Move(inputAxis);
-        if (inputAxis.sqrMagnitude > 0.1f) Face(inputAxis);
+        if (inputAxis.sqrMagnitude > 0.1f && !isAttacking) Face(inputAxis);
 
 
         //Attack related inputs
