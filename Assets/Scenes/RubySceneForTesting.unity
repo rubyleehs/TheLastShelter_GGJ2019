@@ -487,6 +487,27 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 365069932, guid: 0fbe0e3dcd4c753439dc606005e63998, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300002, guid: 5ad66c84e4e62b94cbb2acd605531981,
+        type: 3}
+    - target: {fileID: 365069932, guid: 0fbe0e3dcd4c753439dc606005e63998, type: 3}
+      propertyPath: m_Size.x
+      value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 365069932, guid: 0fbe0e3dcd4c753439dc606005e63998, type: 3}
+      propertyPath: m_Size.y
+      value: 0.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 365069932, guid: 0fbe0e3dcd4c753439dc606005e63998, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 365069932, guid: 0fbe0e3dcd4c753439dc606005e63998, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fbe0e3dcd4c753439dc606005e63998, type: 3}
 --- !u!1001 &7152741703350138836
