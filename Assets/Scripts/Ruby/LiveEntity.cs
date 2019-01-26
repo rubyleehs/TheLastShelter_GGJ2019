@@ -14,7 +14,6 @@ public abstract class LiveEntity : MonoBehaviour
     public float moveSpeed;    
     public float stationarySpeedBoostRatio; //to overcome inertia so player don't feel "sticky"
 
-
     //Runtime Values
     [HideInInspector]
     protected float lookAngle; //in degrees; 0 is to the right, ANTICLOCKWISE direction is positive, from -180 to 180
@@ -25,12 +24,15 @@ public abstract class LiveEntity : MonoBehaviour
     public new Transform transform;
     public Rigidbody2D rb;
     public SpriteRenderer spriteRenderer;
+    public Transform combatEffect;
+    protected Animator combatEffectAnimator;
 
-    public virtual void Awake()
+    protected virtual void Awake() //if you get an acessibility error, change your awake to be protected instead of public. 
     {
         if(transform == null) transform = GetComponent<Transform>();
         if(rb == null) rb = GetComponent<Rigidbody2D>();
         if (spriteRenderer == null) spriteRenderer = GetComponent<SpriteRenderer>();
+        if (combatEffect != null && combatEffectAnimator == null) combatEffectAnimator = combatEffect.GetComponent<Animator>();
     }
 
     public virtual void Move(Vector2 direction)

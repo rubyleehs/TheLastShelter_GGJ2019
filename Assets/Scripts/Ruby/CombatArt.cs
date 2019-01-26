@@ -17,4 +17,5 @@ public class CombatArt : ScriptableObject
 
     public float durationOfAttack;
 
+    public string animationName;
 }
