@@ -133,7 +133,7 @@ public class PlayerControl : LiveEntity
             _liveEntityCheck = collidersWithinHitbox[i].GetComponent<LiveEntity>();
             if (_liveEntityCheck == null) continue;
             Vector2 delta = collidersWithinHitbox[i].transform.position - transform.position;
-            if (Physics2D.Raycast(transform.position,delta,delta.magnitude,obstacleLayer))
+            if (!Physics2D.Raycast(transform.position,delta,delta.magnitude,obstacleLayer))
             if (_liveEntityCheck != null && !outList.Contains(_liveEntityCheck))
             {
                 outList.Add(_liveEntityCheck);
