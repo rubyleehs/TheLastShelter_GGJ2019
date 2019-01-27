@@ -23,9 +23,10 @@ public class CameraShake : MonoBehaviour {
     public IEnumerator cShake(float duration, float amount)
     {
         float endTime = Time.unscaledTime + duration;
-
-        while (Time.unscaledTime < endTime)
+        int i = 0;
+        while (Time.unscaledTime < endTime && i < 500)
         {
+            i++;
             transform.localPosition = _originalPos + Random.insideUnitSphere * amount;
 
             //duration -= Time.unscaledDeltaTime;
