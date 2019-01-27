@@ -17,7 +17,7 @@ MonoBehaviour:
     position: {x: 1.2, y: 0.8}
   damage: 20
   momentumInccuredAngle: 70
-  momentumInccuredMagnitude: 30
+  momentumInccuredMagnitude: 40
   momentumCausedAngle: 0
   momentumCausedMagnitude: 35
   durationOfAttack: 0.16

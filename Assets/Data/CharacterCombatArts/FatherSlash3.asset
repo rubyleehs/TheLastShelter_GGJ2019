@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: FatherSlash3
   m_EditorClassIdentifier: 
   hitboxInfo:
-    size: {x: 2.6, y: 6}
-    position: {x: 3, y: 0.5}
+    size: {x: 4, y: 6}
+    position: {x: 2, y: 0.5}
   damage: 50
   momentumInccuredAngle: -30
-  momentumInccuredMagnitude: 45
-  momentumCausedAngle: 65
+  momentumInccuredMagnitude: 55
+  momentumCausedAngle: -65
   momentumCausedMagnitude: 140
   durationOfAttack: 0.45
   animationName: FatherSlash3
