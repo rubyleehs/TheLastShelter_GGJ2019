@@ -16,6 +16,7 @@ public class EnemyBehaviour : LiveEntity
     float delayTimer;          //used to countdown inRangeDelay
     bool canMove = true; //to prevent enemy to move while attacking
 
+    PlayerSound enemySFX;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +24,8 @@ public class EnemyBehaviour : LiveEntity
         pathfind = GetComponent<PathFinding>();
         atkAnim = atkEffect.GetComponent<Animator>();
         delayTimer = inRangeDelay;
+
+        enemySFX = GetComponent<PlayerSound>(); 
     }
 
     // Update is called once per frame
@@ -46,6 +49,10 @@ public class EnemyBehaviour : LiveEntity
         //trigger attack animation
         atkEffect.SetActive(true);
         StartCoroutine(disableAtkEffect(.3f));
+
+        //play attack sound
+        enemySFX.audio.clip = enemySFX.attackSFX;
+        enemySFX.audio.Play();
 
         //cause damage to target
         pathfind.target.GetComponent<LiveEntity>().TakeDamage(atkDmg);
@@ -85,6 +92,11 @@ public class EnemyBehaviour : LiveEntity
         //trigger animation?
         if (hasDied) return;
         hasDied = true;
+
+        //play dying SFX
+        enemySFX.audio.clip = enemySFX.dieSFX;
+        enemySFX.audio.Play();
+
         //destroy object (set inactive back to pool)
         StartCoroutine(DieAnim());
 
@@ -107,5 +119,12 @@ public class EnemyBehaviour : LiveEntity
     {
         yield return new WaitForSecondsRealtime(delay);
         atkEffect.SetActive(false);        
+    }
+
+    public override void TakeDamage(float amount)
+    {
+        base.TakeDamage(amount);
+        enemySFX.audio.clip = enemySFX.negativeSFX;
+        enemySFX.audio.Play();
     }
 }

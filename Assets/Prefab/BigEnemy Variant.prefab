@@ -231,6 +231,11 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8620832626985188928, guid: 60661c6467366d94fb9c5a3a4c59d089,
+        type: 3}
+      propertyPath: attackSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: da2d4d8e10a1b3f4ca11c0e2e69b6f56, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60661c6467366d94fb9c5a3a4c59d089, type: 3}
 --- !u!4 &1565875440806789722 stripped

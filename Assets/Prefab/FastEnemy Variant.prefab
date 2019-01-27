@@ -146,6 +146,11 @@ PrefabInstance:
       propertyPath: currentHP
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 7548833542429019857, guid: 4d64c1f351314734cb8b4c087605cc88,
+        type: 3}
+      propertyPath: atkRange
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4625550125031075325, guid: 4d64c1f351314734cb8b4c087605cc88,
         type: 3}
       propertyPath: m_Offset.x
@@ -182,6 +187,11 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 233959367734313873, guid: 4d64c1f351314734cb8b4c087605cc88,
+        type: 3}
+      propertyPath: attackSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 64fd53fca4952484ea1a72dc82c7c806, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d64c1f351314734cb8b4c087605cc88, type: 3}
 --- !u!4 &7843399181768341877 stripped

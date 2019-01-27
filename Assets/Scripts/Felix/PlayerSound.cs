@@ -7,6 +7,7 @@ public class PlayerSound : MonoBehaviour
     [HideInInspector] public AudioSource audio;
     public AudioClip attackSFX;
     public AudioClip negativeSFX; //get hit by enemies
+    public AudioClip dieSFX;
 
     // Start is called before the first frame update
     void Start()
