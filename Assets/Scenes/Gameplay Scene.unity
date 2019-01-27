@@ -28319,6 +28319,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b86a8e1fb3b10c44a67e7cb5ff14091, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waveVictory: {fileID: 0}
+  waveTransition: {fileID: 0}
   waveTxt: {fileID: 668855331}
   transitionTxt: {fileID: 672109123}
   gm: {fileID: 1832310921}
@@ -28770,6 +28772,16 @@ PrefabInstance:
       propertyPath: stepDistance.y
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 6172138953757320966, guid: f7714476b2adbb741bbb7bc0953ccdb3,
+        type: 3}
+      propertyPath: fleeSpeed
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 6172138953757320966, guid: f7714476b2adbb741bbb7bc0953ccdb3,
+        type: 3}
+      propertyPath: wanderRadius.x
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8846925417975031475, guid: f7714476b2adbb741bbb7bc0953ccdb3,
         type: 3}
       propertyPath: m_RenderMode
@@ -29074,6 +29086,16 @@ PrefabInstance:
       propertyPath: wanderRadius.y
       value: 18
       objectReference: {fileID: 0}
+    - target: {fileID: 2318539422900399232, guid: 62332947394a617479f362c3b7d9b377,
+        type: 3}
+      propertyPath: fleeSpeed
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 2318539422900399232, guid: 62332947394a617479f362c3b7d9b377,
+        type: 3}
+      propertyPath: wanderRadius.x
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4157813849796034675, guid: 62332947394a617479f362c3b7d9b377,
         type: 3}
       propertyPath: m_RenderMode
@@ -29275,7 +29297,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 566704208, guid: ebbfc157ff80e704297326a74d6561f4, type: 3}
       propertyPath: wanderRadius.x
-      value: 1.5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 566704208, guid: ebbfc157ff80e704297326a74d6561f4, type: 3}
       propertyPath: stepDistance.x
@@ -29288,6 +29310,10 @@ PrefabInstance:
     - target: {fileID: 566704208, guid: ebbfc157ff80e704297326a74d6561f4, type: 3}
       propertyPath: wanderRadius.y
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 566704208, guid: ebbfc157ff80e704297326a74d6561f4, type: 3}
+      propertyPath: fleeSpeed
+      value: 200
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ebbfc157ff80e704297326a74d6561f4, type: 3}

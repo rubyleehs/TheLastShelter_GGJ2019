@@ -88,7 +88,7 @@ Light:
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -219,6 +219,9 @@ MonoBehaviour:
   canHitLayer:
     serializedVersion: 2
     m_Bits: 256
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 0
   combatArts:
   - {fileID: 11400000, guid: cb17cac5e9d5e9e448f7635ae3975064, type: 2}
   - {fileID: 11400000, guid: d35bf5fcc72198d478284c34327929fb, type: 2}
