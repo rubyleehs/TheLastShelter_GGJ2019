@@ -59,7 +59,8 @@ public class NPCLogic : LiveEntity
         if (wanderFollow == null) wanderFollow = transform;
         bool isValidTargetPos = false;
         float d = 0;
-        while (!isValidTargetPos)
+        int i = 0;
+        while (!isValidTargetPos && i < 50)
         {
             targetPos = (Vector2)wanderFollow.position + Random.insideUnitCircle * Random.Range(minRange, maxRange);
             d = (homePos - targetPos).magnitude;
