@@ -58,7 +58,6 @@ public class WaveManager : MonoBehaviour
     {
         audio = GetComponent<AudioSource>();
 
-        waves.Add(new Wave(1, 0, 0, 1));
         waves.Add(new Wave(20, 0, 1, 3));
         waves.Add(new Wave(30, 5, 3, 2));
         waves.Add(new Wave(30, 20, 10, 1.5f));
