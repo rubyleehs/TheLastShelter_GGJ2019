@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &211430504
 Transform:
   m_ObjectHideFlags: 0
@@ -328,6 +328,9 @@ MonoBehaviour:
   canHitLayer:
     serializedVersion: 2
     m_Bits: 256
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 0
   combatArts:
   - {fileID: 11400000, guid: 1f67fc6089da4ad4c90554e8466995fe, type: 2}
   - {fileID: 11400000, guid: 5cbfa59ec74251c479827b30a42e3c50, type: 2}
@@ -489,7 +492,7 @@ Light:
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295

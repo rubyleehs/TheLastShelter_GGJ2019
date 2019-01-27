@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: 278693027}
   m_Layer: 0
   m_Name: BGM
-  m_TagString: BGM
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -211,7 +211,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 51fda056681bd014a8c5046bb64b4176, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -321,8 +321,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e4f1b9ec0c95c449911641b95f28569, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameplayBGM: {fileID: 8300000, guid: 709ddcb237483eb43a82c0482853555b, type: 3}
-  menuBGM: {fileID: 8300000, guid: 51fda056681bd014a8c5046bb64b4176, type: 3}
 --- !u!1 &293388956
 GameObject:
   m_ObjectHideFlags: 0
@@ -7813,6 +7811,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87d27c186d50e854595db98ed8c9d537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BGMManager: {fileID: 278693024}
+  gameplayBGM: {fileID: 0}
 --- !u!82 &1672055096
 AudioSource:
   m_ObjectHideFlags: 0

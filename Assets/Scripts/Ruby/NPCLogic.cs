@@ -12,6 +12,7 @@ public class NPCLogic : LiveEntity
     public Vector2 stepDistance;
     public float wanderCheckIntervalDuration;
     public Transform wanderFollow;
+    public float fleeSpeed;
 
     [Range(0,1)]
     public float wanderChance;
@@ -23,7 +24,8 @@ public class NPCLogic : LiveEntity
     protected override void Awake()
     {
         base.Awake();
-        FindRandomTargetPos();
+        targetPos = transform.position;
+        //FindRandomTargetPos(stepDistance.x,stepDistance.y);
     }
 
     private void Update()
@@ -35,32 +37,44 @@ public class NPCLogic : LiveEntity
     {
         delta = targetPos - (Vector2)transform.position ;
         timeSinceLastWanderCheck += GameManager.deltaTime;
-        if (delta.sqrMagnitude < 2f && timeSinceLastWanderCheck > wanderCheckIntervalDuration) 
+        if (targetPos == Vector2.zero || (delta.sqrMagnitude < wanderRadius.x * wanderRadius.x && timeSinceLastWanderCheck > wanderCheckIntervalDuration)) 
         {
             timeSinceLastWanderCheck = 0;
-            if (Random.Range(0f, 1f) <= wanderChance) FindRandomTargetPos();
+            if (Random.Range(0f, 1f) <= wanderChance) FindRandomTargetPos(stepDistance.x,stepDistance.y);
         }
 
         animator.SetBool("isMoving", rb.velocity.sqrMagnitude > 0.2f);
         animator.SetInteger("YFaceDir", (int)(cardinalLookAngle / 90) % 2);
 
-        if (delta.sqrMagnitude > 2f) Move(delta);
-        Face(delta,true);
+        if (delta.sqrMagnitude > 2f && targetPos != Vector2.zero) Move(delta);
+        else Move(Vector2.zero);
 
+        if (targetPos != Vector2.zero) Face(delta, true);
+        else Face(velocity, true);
 
     }
 
-    private void FindRandomTargetPos()
+    private void FindRandomTargetPos(float minRange, float maxRange)
     {
         if (wanderFollow == null) wanderFollow = transform;
         bool isValidTargetPos = false;
         float d = 0;
         while (!isValidTargetPos)
         {
-            targetPos = (Vector2)wanderFollow.position + Random.insideUnitCircle * Random.Range(stepDistance.x, stepDistance.y);
+            targetPos = (Vector2)wanderFollow.position + Random.insideUnitCircle * Random.Range(minRange, maxRange);
             d = (homePos - targetPos).magnitude;
             if (d > wanderRadius.x && d < wanderRadius.y) isValidTargetPos = true;
         }
+    }
+
+    public override void TakeDamage(float amount)
+    {
+        base.TakeDamage(amount);
+        timeSinceLastWanderCheck = 0;
+        targetPos = Vector2.zero;
+
+        Push(Random.Range(0,360) , fleeSpeed);
+        //FindRandomTargetPos((stepDistance.x+ stepDistance.y)*0.5f,stepDistance.y);
     }
     
     public override void Attack()
