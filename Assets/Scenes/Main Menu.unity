@@ -7812,6 +7812,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BGMManager: {fileID: 278693024}
+  gameplayBGM: {fileID: 0}
 --- !u!82 &1672055096
 AudioSource:
   m_ObjectHideFlags: 0
