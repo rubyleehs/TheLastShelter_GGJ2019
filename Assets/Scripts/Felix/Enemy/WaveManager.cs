@@ -56,6 +56,9 @@ public class WaveManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //reset waves information
+        currentWaveIndex = 0;
+
         audio = GetComponent<AudioSource>();
 
         waves.Add(new Wave(20, 0, 1, 3));
