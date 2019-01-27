@@ -9,7 +9,8 @@ public class CameraControl : MonoBehaviour
 
 
     new Transform transform;
-    private Camera m_Camera;                        
+    private Camera m_Camera;
+    private Transform m_camHolder;
     private float m_ZoomSpeed;                      
     private Vector3 m_MoveVelocity;                
     private Vector3 m_DesiredPosition;             
@@ -19,6 +20,7 @@ public class CameraControl : MonoBehaviour
     {
         if (transform == null) transform = GetComponent<Transform>();
         m_Camera = GetComponentInChildren<Camera>();
+        m_camHolder = transform.parent.transform;
     }
 
 
@@ -32,7 +34,7 @@ public class CameraControl : MonoBehaviour
     private void Move()
     {
         FindAveragePosition();
-        transform.position = Vector3.SmoothDamp(transform.position, m_DesiredPosition, ref m_MoveVelocity, m_DampTime);
+        m_camHolder.position = Vector3.SmoothDamp(m_camHolder.position, m_DesiredPosition, ref m_MoveVelocity, m_DampTime);
     }
 
 
@@ -49,7 +51,7 @@ public class CameraControl : MonoBehaviour
         }
 
         if (numTargets > 0) averagePos /= numTargets;
-        averagePos.z = transform.position.z;
+        averagePos.z = m_camHolder.position.z;
 
         // The desired position is the average position;
         m_DesiredPosition = averagePos;
@@ -66,7 +68,7 @@ public class CameraControl : MonoBehaviour
     private float FindRequiredSize()
     {
         // Find the position the camera rig is moving towards in its local space.
-        Vector3 desiredLocalPos = transform.InverseTransformPoint(m_DesiredPosition);
+        Vector3 desiredLocalPos = m_camHolder.InverseTransformPoint(m_DesiredPosition);
 
         // Start the camera's size calculation at zero.
         float size = 0f;
@@ -77,7 +79,7 @@ public class CameraControl : MonoBehaviour
             if (!m_Targets[i].gameObject.activeSelf) continue;
 
             // Find the position of the target in the camera's local space.
-            Vector3 targetLocalPos = transform.InverseTransformPoint(m_Targets[i].position);
+            Vector3 targetLocalPos = m_camHolder.InverseTransformPoint(m_Targets[i].position);
             Vector3 desiredPosToTarget = targetLocalPos - desiredLocalPos;
 
             size = Mathf.Max(size, Mathf.Abs(desiredPosToTarget.y));
@@ -100,7 +102,7 @@ public class CameraControl : MonoBehaviour
         FindAveragePosition();
 
         // Set the camera's position to the desired position without damping.
-        transform.position = m_DesiredPosition;
+        m_camHolder.position = m_DesiredPosition;
 
         // Find and set the required size of the camera.
         m_Camera.orthographicSize = FindRequiredSize();

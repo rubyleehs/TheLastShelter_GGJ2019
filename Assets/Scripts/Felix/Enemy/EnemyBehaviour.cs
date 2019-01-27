@@ -124,6 +124,7 @@ public class EnemyBehaviour : LiveEntity
     public override void TakeDamage(float amount)
     {
         base.TakeDamage(amount);
+        CameraShake.Shake(0.1f, 0.2f);
         enemySFX.audio.clip = enemySFX.negativeSFX;
         enemySFX.audio.Play();
     }
