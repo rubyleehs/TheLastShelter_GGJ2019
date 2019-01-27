@@ -66,13 +66,12 @@ public class GameManager : MonoBehaviour {
     public void winGame()
     {
         if (!winTxt.activeSelf)
-            winTxt.SetActive(true);
-
-        //play some particles?
+            winTxt.SetActive(true);        
     }
 
     public void loseGame()
     {
         loseTxt.SetActive(true);
+        timeScale = 0;
     }
 }
