@@ -10,6 +10,7 @@ public class MenuManager : MonoBehaviour
 
     private void Start()
     {
+        GameManager.timeScale = 1;
         DontDestroyOnLoad(this);
         
         UIaudio = GetComponent<AudioSource>();
