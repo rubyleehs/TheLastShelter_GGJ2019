@@ -15,12 +15,12 @@ PrefabInstance:
     - target: {fileID: 7548833542429019861, guid: 4d64c1f351314734cb8b4c087605cc88,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.04
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7548833542429019861, guid: 4d64c1f351314734cb8b4c087605cc88,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.99
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7548833542429019861, guid: 4d64c1f351314734cb8b4c087605cc88,
         type: 3}
@@ -109,7 +109,7 @@ PrefabInstance:
     - target: {fileID: 7548833542429019857, guid: 4d64c1f351314734cb8b4c087605cc88,
         type: 3}
       propertyPath: moveSpeed
-      value: 15
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7548833542429019857, guid: 4d64c1f351314734cb8b4c087605cc88,
         type: 3}
@@ -124,12 +124,12 @@ PrefabInstance:
     - target: {fileID: 7548833542429019857, guid: 4d64c1f351314734cb8b4c087605cc88,
         type: 3}
       propertyPath: atkCooldown
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7548833542429019857, guid: 4d64c1f351314734cb8b4c087605cc88,
         type: 3}
       propertyPath: atkDmg
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7548833542429019857, guid: 4d64c1f351314734cb8b4c087605cc88,
         type: 3}
@@ -164,12 +164,12 @@ PrefabInstance:
     - target: {fileID: 4625550125031075325, guid: 4d64c1f351314734cb8b4c087605cc88,
         type: 3}
       propertyPath: m_Offset.y
-      value: -0.43429285
+      value: -0.35853955
       objectReference: {fileID: 0}
     - target: {fileID: 4625550125031075325, guid: 4d64c1f351314734cb8b4c087605cc88,
         type: 3}
       propertyPath: m_Size.y
-      value: 0.5895865
+      value: 0.7410931
       objectReference: {fileID: 0}
     - target: {fileID: 242720668, guid: 4d64c1f351314734cb8b4c087605cc88, type: 3}
       propertyPath: m_IsActive
@@ -192,6 +192,11 @@ PrefabInstance:
       propertyPath: attackSFX
       value: 
       objectReference: {fileID: 8300000, guid: 64fd53fca4952484ea1a72dc82c7c806, type: 3}
+    - target: {fileID: 2582021219292998577, guid: 4d64c1f351314734cb8b4c087605cc88,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d64c1f351314734cb8b4c087605cc88, type: 3}
 --- !u!4 &7843399181768341877 stripped

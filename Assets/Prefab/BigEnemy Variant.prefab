@@ -144,17 +144,17 @@ PrefabInstance:
     - target: {fileID: 2044266220700070656, guid: 60661c6467366d94fb9c5a3a4c59d089,
         type: 3}
       propertyPath: maxHP
-      value: 100
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 2044266220700070656, guid: 60661c6467366d94fb9c5a3a4c59d089,
         type: 3}
       propertyPath: currentHP
-      value: 100
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 2044266220700070656, guid: 60661c6467366d94fb9c5a3a4c59d089,
         type: 3}
       propertyPath: moveSpeed
-      value: 5
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 2044266220700070656, guid: 60661c6467366d94fb9c5a3a4c59d089,
         type: 3}
@@ -179,17 +179,22 @@ PrefabInstance:
     - target: {fileID: 2044266220700070656, guid: 60661c6467366d94fb9c5a3a4c59d089,
         type: 3}
       propertyPath: atkRange
-      value: 1
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 2044266220700070656, guid: 60661c6467366d94fb9c5a3a4c59d089,
         type: 3}
       propertyPath: atkCooldown
-      value: 4
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 2044266220700070656, guid: 60661c6467366d94fb9c5a3a4c59d089,
         type: 3}
       propertyPath: atkDmg
-      value: 5
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044266220700070656, guid: 60661c6467366d94fb9c5a3a4c59d089,
+        type: 3}
+      propertyPath: stationarySpeedBoostRatio
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3795734057231110188, guid: 60661c6467366d94fb9c5a3a4c59d089,
         type: 3}
