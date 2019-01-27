@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
 
     public static float deltaTime;
-    protected float timeScale = 1;
+    public static float timeScale = 1;
 
     public static List<Transform> friendlies = new List<Transform>();
 
@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour {
 
     private void Start()
     {
+        friendlies.Clear();
         //adding all friendly object's transform into list for pathfinding reference
         GameObject[] friendlyObj = GameObject.FindGameObjectsWithTag("FRIENDLIES");
         for (int x = 0; x < friendlyObj.Length; x++)
