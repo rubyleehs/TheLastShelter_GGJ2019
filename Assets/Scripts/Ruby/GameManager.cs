@@ -14,7 +14,8 @@ public class GameManager : MonoBehaviour {
     public GameObject loseTxt;
     public GameObject PausePanel;
 
-   
+    public Animator fadeAnim;
+
     private void Start()
     {
         //adding all friendly object's transform into list for pathfinding reference
@@ -50,11 +51,18 @@ public class GameManager : MonoBehaviour {
                 AudioSource music = GameObject.FindGameObjectWithTag("BGM").GetComponent<AudioSource>();
                 music.clip = music.gameObject.GetComponent<BGM>().menuBGM;
                 music.Play();
-                SceneManager.LoadScene("Main Menu", LoadSceneMode.Single);
+
+                fadeAnim.SetTrigger("fadeOut");
+                StartCoroutine(onFadeComplete());
             }
         }
 	}
 
+    IEnumerator onFadeComplete()
+    {
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene("Main Menu", LoadSceneMode.Single);
+    }
     public void winGame()
     {
         if (!winTxt.activeSelf)

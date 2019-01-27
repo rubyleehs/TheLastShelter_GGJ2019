@@ -1,33 +1,40 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
     AudioSource UIaudio;    
-    AudioSource BGMManager;   
+    AudioSource BGMManager;
+    public Animator fadeAnim;
 
     private void Start()
     {
         DontDestroyOnLoad(this);
         
         UIaudio = GetComponent<AudioSource>();
-        BGMManager = GameObject.FindGameObjectWithTag("BGM").GetComponent<AudioSource>();       
+        BGMManager = GameObject.FindGameObjectWithTag("BGM").GetComponent<AudioSource>();
+
     }
     public void PlayButtonClicked()
     {
         BGMManager.clip = BGMManager.gameObject.GetComponent<BGM>().gameplayBGM;
         BGMManager.Play();
-        SceneManager.LoadScene("Gameplay Scene", LoadSceneMode.Single);        
+
+        fadeAnim.SetTrigger("fadeOut");
+        StartCoroutine(onFadeComplete("Gameplay Scene"));    
     }
 
     public void CreditButtonClicked()
     {
-        SceneManager.LoadScene("Credit Scene", LoadSceneMode.Single);
+        fadeAnim.SetTrigger("fadeOut");
+        StartCoroutine(onFadeComplete("Credit Scene"));
     }
 
     public void HelpButtonClicked()
     {
-        SceneManager.LoadScene("Help Scene", LoadSceneMode.Single);
+        fadeAnim.SetTrigger("fadeOut");
+        StartCoroutine(onFadeComplete("Help Scene"));
     }
 
     private void Update()
@@ -40,4 +47,9 @@ public class MenuManager : MonoBehaviour
         }       
     }
 
+    IEnumerator onFadeComplete(string sceneName)
+    {
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+    }
 }
