@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour {
     public GameObject loseTxt;
     public GameObject PausePanel;
 
+   
     private void Start()
     {
         //adding all friendly object's transform into list for pathfinding reference
@@ -46,6 +47,9 @@ public class GameManager : MonoBehaviour {
             if (winTxt.activeSelf || loseTxt.activeSelf)
             {
                 //go back Main Menu scene
+                AudioSource music = GameObject.FindGameObjectWithTag("BGM").GetComponent<AudioSource>();
+                music.clip = music.gameObject.GetComponent<BGM>().menuBGM;
+                music.Play();
                 SceneManager.LoadScene("Main Menu", LoadSceneMode.Single);
             }
         }

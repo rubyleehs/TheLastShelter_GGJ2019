@@ -30,6 +30,11 @@ public struct Wave
 
 public class WaveManager : MonoBehaviour
 {
+    [Header("Audio")]
+    AudioSource audio;
+    public AudioClip waveVictory;
+    public AudioClip waveTransition;
+
     public static int totalEnemy;               //this is to keep track whether all enemies is dead in this particular wave
     public static bool isWaveFinish = false;    //to trigger the transition between waves
     public static float transitionTime = 10;    //the exact amount of time during transition between waves (should pause during upgrades window)
@@ -51,13 +56,15 @@ public class WaveManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        waves.Add(new Wave(1, 0, 0, 3));
-        //waves.Add(new Wave(20, 0, 1, 3));
-        //waves.Add(new Wave(30, 5, 3, 2));
-        //waves.Add(new Wave(30, 20, 10, 1.5f));
-        //waves.Add(new Wave(40, 25, 20, 1f));
-        //waves.Add(new Wave(50, 30, 25, 0.5f));
-        //waves.Add(new Wave(60, 50, 30, 0.2f));
+        audio = GetComponent<AudioSource>();
+
+        waves.Add(new Wave(1, 0, 0, 1));
+        waves.Add(new Wave(20, 0, 1, 3));
+        waves.Add(new Wave(30, 5, 3, 2));
+        waves.Add(new Wave(30, 20, 10, 1.5f));
+        waves.Add(new Wave(40, 25, 20, 1f));
+        waves.Add(new Wave(50, 30, 25, 0.5f));
+        waves.Add(new Wave(60, 50, 30, 0.2f));
 
         currentWave = waves[currentWaveIndex];
         totalEnemy = currentWave.normalEnemyNum + currentWave.fastEnemyNum + currentWave.bigEnemyNum;
@@ -70,7 +77,10 @@ public class WaveManager : MonoBehaviour
     {       
         //if all enemies are defeated in this wave, wave finish
         if (totalEnemy <= 0)
+        {
             isWaveFinish = true;
+        }
+            
         else
         {
             if (currentWave.normalEnemyNum <= 0) currentWave.isFinishNormalEnemy = true;
@@ -92,7 +102,12 @@ public class WaveManager : MonoBehaviour
             if (countdownTimer > 0)
             {
                 if (!transitionTxt.gameObject.activeSelf)
+                {
                     transitionTxt.gameObject.SetActive(true);
+                    audio.clip = waveVictory;
+                    audio.Play();
+                }
+                    
                 transitionTxt.SetText("Next wave in: " + ((int)countdownTimer).ToString());
                 countdownTimer -= GameManager.deltaTime;
                 for (int x = 0; x < transitionFill.Length; x++)
@@ -103,6 +118,8 @@ public class WaveManager : MonoBehaviour
             }                
             else
             {
+                audio.clip = waveTransition;
+                audio.Play();
                 isWaveFinish = false;
                 transitionTxt.gameObject.SetActive(false);
                 countdownTimer = transitionTime;

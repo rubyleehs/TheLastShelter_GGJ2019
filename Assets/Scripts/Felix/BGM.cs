@@ -5,23 +5,16 @@ using UnityEngine;
 public class BGM : MonoBehaviour
 {
     private static GameObject bgmInstance;
-
+    public AudioClip gameplayBGM;
+    public AudioClip menuBGM;
     private void Awake()
     {
+        DontDestroyOnLoad(this);
+        
         if (!bgmInstance)
             bgmInstance = gameObject;
         else
             Destroy(gameObject);
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

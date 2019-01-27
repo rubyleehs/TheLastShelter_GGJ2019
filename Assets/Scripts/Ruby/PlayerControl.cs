@@ -32,6 +32,8 @@ public class PlayerControl : LiveEntity
     public float comboChainBreakDuration;
     protected float durationSinceLastAttack = 999;
 
+    PlayerSound playerSFX;
+
     [Header("Debugging")]
     public Transform combatArtHitbox;
 
@@ -39,7 +41,10 @@ public class PlayerControl : LiveEntity
     protected bool allowInput = true;
     protected bool isAttacking = false;
 
-  
+    private void Start()
+    {
+        playerSFX = GetComponent<PlayerSound>();
+    }
 
     private void Update()
     {
@@ -80,6 +85,9 @@ public class PlayerControl : LiveEntity
     {
         if (isAttacking) return;
         Debug.Log("Attack!");
+
+        playerSFX.audio.clip = playerSFX.attackSFX;
+        playerSFX.audio.Play();
 
         if (durationSinceLastAttack > attackChainBreakDuration) attackChainPosition = 0;
         else
@@ -155,5 +163,10 @@ public class PlayerControl : LiveEntity
         combatArtHitbox.transform.localPosition = relativePos.Rotate(cardinalLookAngle);
     }
 
-
+    public override void TakeDamage(float amount)
+    {
+        base.TakeDamage(amount);
+        playerSFX.audio.clip = playerSFX.negativeSFX;
+        playerSFX.audio.Play();
+    }
 }

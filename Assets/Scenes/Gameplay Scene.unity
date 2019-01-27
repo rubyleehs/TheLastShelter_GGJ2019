@@ -189,6 +189,11 @@ PrefabInstance:
       propertyPath: gm
       value: 
       objectReference: {fileID: 1832310921}
+    - target: {fileID: 995552244618911641, guid: 0fbe0e3dcd4c753439dc606005e63998,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fbe0e3dcd4c753439dc606005e63998, type: 3}
 --- !u!224 &39704009 stripped
@@ -379,6 +384,11 @@ PrefabInstance:
       propertyPath: gm
       value: 
       objectReference: {fileID: 1832310921}
+    - target: {fileID: 5103085153428996193, guid: 7dc9e183777db0940a6acecebad7f6c3,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7dc9e183777db0940a6acecebad7f6c3, type: 3}
 --- !u!1001 &202949208
@@ -867,6 +877,7 @@ GameObject:
   - component: {fileID: 519420029}
   - component: {fileID: 519420033}
   - component: {fileID: 519420030}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1015,6 +1026,24 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!114 &519420034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89a2fb69a9b3c3345a37d2b318271fa7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_DampTime: 0
+  m_ScreenEdgeBuffer: 4
+  m_MinSize: 6.5
+  m_Targets:
+  - {fileID: 1208153741}
+  - {fileID: 1592666983}
 --- !u!1 &551671923
 GameObject:
   m_ObjectHideFlags: 0
@@ -2740,7 +2769,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1199653177}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 5}
+  m_LocalPosition: {x: 0, y: 0, z: 6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1331118626}
@@ -28507,7 +28536,7 @@ Light:
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -28731,6 +28760,21 @@ PrefabInstance:
       propertyPath: gm
       value: 
       objectReference: {fileID: 1832310921}
+    - target: {fileID: 6172138953757320966, guid: f7714476b2adbb741bbb7bc0953ccdb3,
+        type: 3}
+      propertyPath: wanderRadius.y
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6172138953757320966, guid: f7714476b2adbb741bbb7bc0953ccdb3,
+        type: 3}
+      propertyPath: stepDistance.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8846925417975031475, guid: f7714476b2adbb741bbb7bc0953ccdb3,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7714476b2adbb741bbb7bc0953ccdb3, type: 3}
 --- !u!4 &2318539422900399235 stripped
@@ -29005,6 +29049,36 @@ PrefabInstance:
       propertyPath: gm
       value: 
       objectReference: {fileID: 1832310921}
+    - target: {fileID: 2318539422900399232, guid: 62332947394a617479f362c3b7d9b377,
+        type: 3}
+      propertyPath: stepDistance.x
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2318539422900399232, guid: 62332947394a617479f362c3b7d9b377,
+        type: 3}
+      propertyPath: stepDistance.y
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2318539422900399232, guid: 62332947394a617479f362c3b7d9b377,
+        type: 3}
+      propertyPath: wanderChance
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2318539422900399232, guid: 62332947394a617479f362c3b7d9b377,
+        type: 3}
+      propertyPath: wanderCheckIntervalDuration
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2318539422900399232, guid: 62332947394a617479f362c3b7d9b377,
+        type: 3}
+      propertyPath: wanderRadius.y
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 4157813849796034675, guid: 62332947394a617479f362c3b7d9b377,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62332947394a617479f362c3b7d9b377, type: 3}
 --- !u!1001 &5910975432237886741
@@ -29191,5 +29265,29 @@ PrefabInstance:
       propertyPath: wanderFollow
       value: 
       objectReference: {fileID: 6172138953757320965}
+    - target: {fileID: 566704208, guid: ebbfc157ff80e704297326a74d6561f4, type: 3}
+      propertyPath: wanderChance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 566704208, guid: ebbfc157ff80e704297326a74d6561f4, type: 3}
+      propertyPath: wanderCheckIntervalDuration
+      value: 2.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 566704208, guid: ebbfc157ff80e704297326a74d6561f4, type: 3}
+      propertyPath: wanderRadius.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 566704208, guid: ebbfc157ff80e704297326a74d6561f4, type: 3}
+      propertyPath: stepDistance.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 566704208, guid: ebbfc157ff80e704297326a74d6561f4, type: 3}
+      propertyPath: stepDistance.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 566704208, guid: ebbfc157ff80e704297326a74d6561f4, type: 3}
+      propertyPath: wanderRadius.y
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ebbfc157ff80e704297326a74d6561f4, type: 3}

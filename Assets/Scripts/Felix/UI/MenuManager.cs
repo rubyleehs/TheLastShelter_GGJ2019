@@ -3,22 +3,20 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    AudioSource UIaudio;
-    public GameObject BGMManager;
-    AudioSource BGM;
-    public AudioClip gameplayBGM;
+    AudioSource UIaudio;    
+    AudioSource BGMManager;   
 
     private void Start()
     {
         DontDestroyOnLoad(this);
-        DontDestroyOnLoad(BGMManager);
+        
         UIaudio = GetComponent<AudioSource>();
-        BGM = BGMManager.GetComponent<AudioSource>();       
+        BGMManager = GameObject.FindGameObjectWithTag("BGM").GetComponent<AudioSource>();       
     }
     public void PlayButtonClicked()
     {
-        BGM.clip = gameplayBGM;
-        BGM.Play();
+        BGMManager.clip = BGMManager.gameObject.GetComponent<BGM>().gameplayBGM;
+        BGMManager.Play();
         SceneManager.LoadScene("Gameplay Scene", LoadSceneMode.Single);        
     }
 
