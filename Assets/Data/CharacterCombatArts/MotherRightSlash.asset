@@ -15,9 +15,9 @@ MonoBehaviour:
   hitboxInfo:
     size: {x: 1.5, y: 1}
     position: {x: 0.8, y: 0}
-  damage: 50
+  damage: 35
   momentumInccuredAngle: 0
-  momentumInccuredMagnitude: 20
+  momentumInccuredMagnitude: 30
   momentumCausedAngle: 0
   momentumCausedMagnitude: 80
   durationOfAttack: 0.11

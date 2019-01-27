@@ -37,7 +37,7 @@ public class NPCLogic : LiveEntity
     {
         delta = targetPos - (Vector2)transform.position ;
         timeSinceLastWanderCheck += GameManager.deltaTime;
-        if (targetPos == Vector2.zero || (delta.sqrMagnitude < wanderRadius.x * wanderRadius.x && timeSinceLastWanderCheck > wanderCheckIntervalDuration)) 
+        if (targetPos == Vector2.zero || timeSinceLastWanderCheck > wanderCheckIntervalDuration)) 
         {
             timeSinceLastWanderCheck = 0;
             if (Random.Range(0f, 1f) <= wanderChance) FindRandomTargetPos(stepDistance.x,stepDistance.y);
